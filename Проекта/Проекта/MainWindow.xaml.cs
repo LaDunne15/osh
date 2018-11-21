@@ -23,6 +23,7 @@ namespace Проекта
         public MainWindow()
         {
             InitializeComponent();
+            LEFT.Opacity = 0.5;
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
@@ -39,24 +40,42 @@ namespace Проекта
         {
             int a = Convert.ToInt32(Text2.Content);
             a++;
-            Text2.Content = Convert.ToString(a);
+            if(a>9)
+            {
+                Text2.Content =Convert.ToString(a);
+            }else
+                Text2.Content = "0"+ Convert.ToString(a);
+
         }
 
         private void RIGHT_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             int a = Convert.ToInt32(Text2.Content);
             a++;
-            Text2.Content = Convert.ToString(a);
+            if (a > 9)
+            {
+                Text2.Content = Convert.ToString(a);
+            }
+            else
+                Text2.Content = "0" + Convert.ToString(a);
+            LEFT.Opacity = 0.9;
         }
 
         private void LEFT_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             int a = Convert.ToInt32(Text2.Content);
-            
+
             if (a > 1)
                 a--;
-            else a=1;
-            Text2.Content = Convert.ToString(a);
+            else { a = 1; }
+            if (a == 1)
+            { LEFT.Opacity = 0.5;}
+            if (a > 9)
+            {
+                Text2.Content = Convert.ToString(a);
+            }
+            else
+                Text2.Content = "0" + Convert.ToString(a);
         }
     }
 }
