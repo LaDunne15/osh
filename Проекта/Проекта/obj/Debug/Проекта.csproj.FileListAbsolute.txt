@@ -27,3 +27,4 @@ C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Debug\
 C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Debug\Проекта.csproj.CoreCompileInputs.cache
 C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Debug\Проекта.exe
 C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Debug\Проекта.pdb
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Debug\Проекта.csprojAssemblyReference.cache

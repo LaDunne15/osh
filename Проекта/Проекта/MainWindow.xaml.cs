@@ -34,5 +34,29 @@ namespace Проекта
         {
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            int a = Convert.ToInt32(Text2.Content);
+            a++;
+            Text2.Content = Convert.ToString(a);
+        }
+
+        private void RIGHT_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            int a = Convert.ToInt32(Text2.Content);
+            a++;
+            Text2.Content = Convert.ToString(a);
+        }
+
+        private void LEFT_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            int a = Convert.ToInt32(Text2.Content);
+            
+            if (a > 1)
+                a--;
+            else a=1;
+            Text2.Content = Convert.ToString(a);
+        }
     }
 }
