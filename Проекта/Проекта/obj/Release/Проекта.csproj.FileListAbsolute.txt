@@ -1,0 +1,14 @@
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\bin\Release\Проекта.exe.config
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\bin\Release\Проекта.exe
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\bin\Release\Проекта.pdb
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Release\MainWindow.g.cs
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Release\App.g.cs
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Release\Проекта_MarkupCompile.cache
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Release\Проекта_MarkupCompile.lref
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Release\MainWindow.baml
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Release\Проекта.g.resources
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Release\Проекта.Properties.Resources.resources
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Release\Проекта.csproj.GenerateResource.cache
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Release\Проекта.csproj.CoreCompileInputs.cache
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Release\Проекта.exe
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Release\Проекта.pdb

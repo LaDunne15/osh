@@ -13,3 +13,17 @@ C:\Users\Владислав\Desktop\Проэкт\8\Проекта\Проекта
 C:\Users\Владислав\Desktop\Проэкт\8\Проекта\Проекта\obj\Debug\Проекта.csproj.CoreCompileInputs.cache
 C:\Users\Владислав\Desktop\Проэкт\8\Проекта\Проекта\obj\Debug\Проекта.exe
 C:\Users\Владислав\Desktop\Проэкт\8\Проекта\Проекта\obj\Debug\Проекта.pdb
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\bin\Debug\Проекта.exe.config
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\bin\Debug\Проекта.exe
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\bin\Debug\Проекта.pdb
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Debug\MainWindow.g.cs
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Debug\App.g.cs
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Debug\Проекта_MarkupCompile.cache
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Debug\Проекта_MarkupCompile.lref
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Debug\MainWindow.baml
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Debug\Проекта.g.resources
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Debug\Проекта.Properties.Resources.resources
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Debug\Проекта.csproj.GenerateResource.cache
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Debug\Проекта.csproj.CoreCompileInputs.cache
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Debug\Проекта.exe
+C:\Users\Владислав\Desktop\osh\Проекта\Проекта\obj\Debug\Проекта.pdb
