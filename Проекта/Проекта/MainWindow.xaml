@@ -15,13 +15,13 @@
         <Rectangle Grid.Column="0" Fill="#FF400000"/>
         <StackPanel>
             <Label Margin="0,1" Content="Жанр" Foreground="White" FontSize="36" FontFamily="/Проекта;component/#Jura Medium" />
-            <Rectangle Grid.Column="0" Height="70" Fill="#B2BF2929" Margin="0,1"/>
-            <Rectangle Grid.Column="0" Height="70" Fill="#B2BF2929" Margin="0,1"/>
-            <Rectangle Grid.Column="0" Height="70" Fill="#B2BF2929" Margin="0,1"/>
-            <Rectangle Grid.Column="0" Height="70" Fill="#B2BF2929" Margin="0,1"/>
-            <Rectangle Grid.Column="0" Height="70" Fill="#B2BF2929" Margin="0,1"/>
-            <Rectangle Grid.Column="0" Height="70" Fill="#B2BF2929" Margin="0,1"/>
-            <Rectangle Grid.Column="0" Height="70" Fill="#B2BF2929" Margin="0,1"/>
+            <Rectangle x:Name="Genre1" Grid.Column="0" Height="70" Width="200" Fill="#B2BF2929" Margin="0,1" MouseLeftButtonDown="Rectangle_MouseLeftButtonDown"/>
+            <Rectangle x:Name="Genre2" Grid.Column="0" Height="50" Width="180" Fill="#B2BF2929" Margin="0,1" MouseLeftButtonDown="Genre2_MouseLeftButtonDown"/>
+            <Rectangle x:Name="Genre3" Grid.Column="0" Height="50" Width="180" Fill="#B2BF2929" Margin="0,1" MouseLeftButtonDown="Genre3_MouseLeftButtonDown"/>
+            <Rectangle x:Name="Genre4" Grid.Column="0" Height="50" Width="180" Fill="#B2BF2929" Margin="0,1" MouseLeftButtonDown="Genre4_MouseLeftButtonDown"/>
+            <Rectangle x:Name="Genre5" Grid.Column="0" Height="50" Width="180" Fill="#B2BF2929" Margin="0,1" MouseLeftButtonDown="Genre5_MouseLeftButtonDown"/>
+            <Rectangle x:Name="Genre6" Grid.Column="0" Height="50" Width="180" Fill="#B2BF2929" Margin="0,1" MouseLeftButtonDown="Genre6_MouseLeftButtonDown"/>
+            <Rectangle x:Name="Genre7" Grid.Column="0" Height="50" Width="180" Fill="#B2BF2929" Margin="0,1" MouseLeftButtonDown="Genre7_MouseLeftButtonDown"/>
         </StackPanel>
         <Label Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="78,634,0,0" FontSize="60" Foreground="White" FontFamily="MADE Evolve Sans EVO" RenderTransformOrigin="0.225,0.2" Width="42"/>
         <Rectangle Grid.Column="0" Height="60" Margin="7,649,7,7" Fill="#7F683131"/>
@@ -86,7 +86,7 @@
             </Rectangle.RenderTransform>
         </Rectangle>
         <Label x:Name="Text2" Content="01" Grid.Column="1" HorizontalAlignment="Left" Margin="289,618,0,0" VerticalAlignment="Top" Height="66" Width="88" FontSize="36" Cursor="Arrow" BorderBrush="Red" Foreground="White" FontStretch="Condensed" FontFamily="/Проекта;component/#Orbitron Medium" FontStyle="Italic"/>
-        <Label Content="Тигролови" Grid.Column="1" HorizontalAlignment="Left" Margin="123,120,0,0" VerticalAlignment="Top" Height="58" Width="490" FontSize="24" Foreground="White" FontFamily="/Проекта;component/#Jura Medium"/>
+        <Label Content="Тигролови" Grid.Column="1" HorizontalAlignment="Left" Margin="123,120,0,0" VerticalAlignment="Top" Height="58" Width="457" FontSize="24" Foreground="White" FontFamily="/Проекта;component/#Jura Medium"/>
         <Label Content="Багряний І. П." Grid.Column="1" HorizontalAlignment="Left" Margin="123,172,0,0" VerticalAlignment="Top" Height="58" Width="400" FontSize="16" Foreground="#FF7E7E7E" FontFamily="/Проекта;component/#Jura Medium"/>
         <Label Content="50₴" Grid.Column="1" HorizontalAlignment="Left" Margin="545,160,0,0" VerticalAlignment="Top" Height="58" Width="90" FontSize="36" Foreground="#FFFFF3A5" FontFamily="/Проекта;component/#Jura Medium"/>
         <Label Content="Мій Ізмарагд" Grid.Column="1" HorizontalAlignment="Left" Margin="123,220,0,0" VerticalAlignment="Top" Height="58" Width="490" FontSize="24" Foreground="White" FontFamily="/Проекта;component/#Jura Medium"/>
@@ -102,5 +102,6 @@
         <Label Content="45₴" Grid.Column="1" HorizontalAlignment="Left" Margin="545,460,0,0" VerticalAlignment="Top" Height="58" Width="90" FontSize="36" Foreground="#FFFFF3A5" FontFamily="/Проекта;component/#Jura Medium"/>
         <Label Content="50₴" Grid.Column="1" HorizontalAlignment="Left" Margin="545,560,0,0" VerticalAlignment="Top" Height="58" Width="90" FontSize="36" Foreground="#FFFFF3A5" FontFamily="/Проекта;component/#Jura Medium"/>
         <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="455,78,0,0" VerticalAlignment="Top" Width="172" Height="36" Foreground="Black" Background="Black"/>
+
     </Grid>
 </Window>

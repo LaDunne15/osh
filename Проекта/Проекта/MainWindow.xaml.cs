@@ -77,5 +77,131 @@ namespace Проекта
             else
                 Text2.Content = "0" + Convert.ToString(a);
         }
+
+        private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Genre1.Height = 70;
+            Genre2.Height = 50;
+            Genre3.Height = 50;
+            Genre4.Height = 50;
+            Genre5.Height = 50;
+            Genre6.Height = 50;
+            Genre7.Height = 50;
+            Genre1.Width = 200;
+            Genre2.Width = 180;
+            Genre3.Width = 180;
+            Genre4.Width = 180;
+            Genre5.Width = 180;
+            Genre6.Width = 180;
+            Genre7.Width = 180;
+        }
+
+        private void Genre2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Genre1.Height = 50;
+            Genre2.Height = 70;
+            Genre3.Height = 50;
+            Genre4.Height = 50;
+            Genre5.Height = 50;
+            Genre6.Height = 50;
+            Genre7.Height = 50;
+            Genre1.Width = 180;
+            Genre2.Width = 200;
+            Genre3.Width = 180;
+            Genre4.Width = 180;
+            Genre5.Width = 180;
+            Genre6.Width = 180;
+            Genre7.Width = 180;
+        }
+
+        private void Genre3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Genre1.Height = 50;
+            Genre2.Height = 50;
+            Genre3.Height = 70;
+            Genre4.Height = 50;
+            Genre5.Height = 50;
+            Genre6.Height = 50;
+            Genre7.Height = 50;
+            Genre1.Width = 180;
+            Genre2.Width = 180;
+            Genre3.Width = 200;
+            Genre4.Width = 180;
+            Genre5.Width = 180;
+            Genre6.Width = 180;
+            Genre7.Width = 180;
+        }
+
+        private void Genre4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Genre1.Height = 50;
+            Genre2.Height = 50;
+            Genre3.Height = 50;
+            Genre4.Height = 70;
+            Genre5.Height = 50;
+            Genre6.Height = 50;
+            Genre7.Height = 50;
+            Genre1.Width = 180;
+            Genre2.Width = 180;
+            Genre3.Width = 180;
+            Genre4.Width = 200;
+            Genre5.Width = 180;
+            Genre6.Width = 180;
+            Genre7.Width = 180;
+        }
+
+        private void Genre5_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Genre1.Height = 50;
+            Genre2.Height = 50;
+            Genre3.Height = 50;
+            Genre4.Height = 50;
+            Genre5.Height = 70;
+            Genre6.Height = 50;
+            Genre7.Height = 50;
+            Genre1.Width = 180;
+            Genre2.Width = 180;
+            Genre3.Width = 180;
+            Genre4.Width = 180;
+            Genre5.Width = 200;
+            Genre6.Width = 180;
+            Genre7.Width = 180;
+        }
+
+        private void Genre6_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Genre1.Height = 50;
+            Genre2.Height = 50;
+            Genre3.Height = 50;
+            Genre4.Height = 50;
+            Genre5.Height = 50;
+            Genre6.Height = 70;
+            Genre7.Height = 50;
+            Genre1.Width = 180;
+            Genre2.Width = 180;
+            Genre3.Width = 180;
+            Genre4.Width = 180;
+            Genre5.Width = 180;
+            Genre6.Width = 200;
+            Genre7.Width = 180;
+        }
+
+        private void Genre7_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Genre1.Height = 50;
+            Genre2.Height = 50;
+            Genre3.Height = 50;
+            Genre4.Height = 50;
+            Genre5.Height = 50;
+            Genre6.Height = 50;
+            Genre7.Height = 70;
+            Genre1.Width = 180;
+            Genre2.Width = 180;
+            Genre3.Width = 180;
+            Genre4.Width = 180;
+            Genre5.Width = 180;
+            Genre6.Width = 180;
+            Genre7.Width = 200;
+        }
     }
 }
