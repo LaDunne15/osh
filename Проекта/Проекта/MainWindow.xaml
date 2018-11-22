@@ -13,6 +13,18 @@
             <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Column="0" Fill="#FF400000"/>
+        <StackPanel>
+            <Label Margin="0,1" Content="Жанр" Foreground="White" FontSize="36" FontFamily="/Проекта;component/#Jura Medium" />
+            <Rectangle Grid.Column="0" Height="70" Fill="#B2BF2929" Margin="0,1"/>
+            <Rectangle Grid.Column="0" Height="70" Fill="#B2BF2929" Margin="0,1"/>
+            <Rectangle Grid.Column="0" Height="70" Fill="#B2BF2929" Margin="0,1"/>
+            <Rectangle Grid.Column="0" Height="70" Fill="#B2BF2929" Margin="0,1"/>
+            <Rectangle Grid.Column="0" Height="70" Fill="#B2BF2929" Margin="0,1"/>
+            <Rectangle Grid.Column="0" Height="70" Fill="#B2BF2929" Margin="0,1"/>
+            <Rectangle Grid.Column="0" Height="70" Fill="#B2BF2929" Margin="0,1"/>
+        </StackPanel>
+        <Label Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="78,634,0,0" FontSize="60" Foreground="White" FontFamily="MADE Evolve Sans EVO" RenderTransformOrigin="0.225,0.2" Width="42"/>
+        <Rectangle Grid.Column="0" Height="60" Margin="7,649,7,7" Fill="#7F683131"/>
         <Rectangle Grid.Column="1">
             <Rectangle.Effect>
                 <BlurEffect/>
@@ -27,8 +39,15 @@
         <Rectangle Grid.Column="1" Height="85" Fill="#7F303030" Margin="10,404,10,189" Stroke="White"/>
         <Rectangle Grid.Column="1" Height="85" Fill="#7F303030" Margin="10,504,10,89" Stroke="White"/>
 
-        <Image x:Name="RIGHT" Grid.Column="1" Height="64" Width="64" Margin="418,599,20,15" Source="RIGHT.png" MouseLeftButtonDown="RIGHT_MouseLeftButtonDown" OpacityMask="#E5000000"/>
+        <Image x:Name="RIGHT" Grid.Column="1" Height="64" Width="64" Margin="418,599,20,15" Source="RIGHT.png" MouseLeftButtonDown="RIGHT_MouseLeftButtonDown" OpacityMask="#E5000000">
+            <Image.Effect>
+                <DropShadowEffect ShadowDepth="7" BlurRadius="25" RenderingBias="Quality"/>
+            </Image.Effect>
+        </Image>
         <Image x:Name="LEFT" Grid.Column="1" Height="64" Width="64" Margin="20,599,418,15" Source="RIGHT.png" RenderTransformOrigin="0.5,0.5" MouseLeftButtonDown="LEFT_MouseLeftButtonDown" OpacityMask="Black">
+            <Image.Effect>
+                <DropShadowEffect BlurRadius="25" Direction="135"/>
+            </Image.Effect>
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -45,13 +64,16 @@
         <Image Grid.Column="1" Height="85" Width="85" Source="frontside.png" Margin="30,424,525,208"/>
         <Image Grid.Column="1" Height="85" Width="85" Source="frontside.png" Margin="30,524,525,108"/>
         <Rectangle Grid.Column="1" Margin="202,619,202,29" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.Effect>
+                <DropShadowEffect BlurRadius="65" ShadowDepth="25"/>
+            </Rectangle.Effect>
             <Rectangle.Stroke>
                 <SolidColorBrush Color="White" Opacity="0.305"/>
             </Rectangle.Stroke>
             <Rectangle.Fill>
                 <RadialGradientBrush>
-                    <GradientStop Color="#FF0B0117" Offset="0"/>
-                    <GradientStop Color="#BF200047" Offset="1"/>
+                    <GradientStop Color="#FF2D1D40" Offset="0"/>
+                    <GradientStop Color="#BF32055F" Offset="1"/>
                 </RadialGradientBrush>
             </Rectangle.Fill>
             <Rectangle.RenderTransform>
@@ -64,20 +86,21 @@
             </Rectangle.RenderTransform>
         </Rectangle>
         <Label x:Name="Text2" Content="01" Grid.Column="1" HorizontalAlignment="Left" Margin="289,618,0,0" VerticalAlignment="Top" Height="66" Width="88" FontSize="36" Cursor="Arrow" BorderBrush="Red" Foreground="White" FontStretch="Condensed" FontFamily="/Проекта;component/#Orbitron Medium" FontStyle="Italic"/>
-        <Label Content="Тигролови" Grid.Column="1" HorizontalAlignment="Left" Margin="123,116,0,0" VerticalAlignment="Top" Height="58" Width="490" FontSize="36" Foreground="White" FontFamily="/Проекта;component/#Jura Medium"/>
-        <Label Content="Багряний І. П." Grid.Column="1" HorizontalAlignment="Left" Margin="123,162,0,0" VerticalAlignment="Top" Height="58" Width="400" FontSize="24" Foreground="#FF7E7E7E" FontFamily="/Проекта;component/#Jura Medium"/>
+        <Label Content="Тигролови" Grid.Column="1" HorizontalAlignment="Left" Margin="123,120,0,0" VerticalAlignment="Top" Height="58" Width="490" FontSize="24" Foreground="White" FontFamily="/Проекта;component/#Jura Medium"/>
+        <Label Content="Багряний І. П." Grid.Column="1" HorizontalAlignment="Left" Margin="123,172,0,0" VerticalAlignment="Top" Height="58" Width="400" FontSize="16" Foreground="#FF7E7E7E" FontFamily="/Проекта;component/#Jura Medium"/>
         <Label Content="50₴" Grid.Column="1" HorizontalAlignment="Left" Margin="545,160,0,0" VerticalAlignment="Top" Height="58" Width="90" FontSize="36" Foreground="#FFFFF3A5" FontFamily="/Проекта;component/#Jura Medium"/>
-        <Label Content="Мій Ізмарагд" Grid.Column="1" HorizontalAlignment="Left" Margin="123,216,0,0" VerticalAlignment="Top" Height="58" Width="490" FontSize="36" Foreground="White" FontFamily="/Проекта;component/#Jura Medium"/>
-        <Label Content="Денс, денс, денс" Grid.Column="1" HorizontalAlignment="Left" Margin="123,316,0,0" VerticalAlignment="Top" Height="58" Width="490" FontSize="36" Foreground="White" FontFamily="/Проекта;component/#Jura Medium"/>
-        <Label Content="Лісова пісня" Grid.Column="1" HorizontalAlignment="Left" Margin="123,416,0,0" VerticalAlignment="Top" Height="58" Width="490" FontSize="36" Foreground="White" FontFamily="/Проекта;component/#Jura Medium"/>
-        <Label Content="Перевтілення" Grid.Column="1" HorizontalAlignment="Left" Margin="123,516,0,0" VerticalAlignment="Top" Height="58" Width="490" FontSize="36" Foreground="White" FontFamily="/Проекта;component/#Jura Medium"/>
-        <Label Content="Франко І. Я." Grid.Column="1" HorizontalAlignment="Left" Margin="123,262,0,0" VerticalAlignment="Top" Height="58" Width="400" FontSize="24" Foreground="#FF7E7E7E" FontFamily="/Проекта;component/#Jura Medium"/>
-        <Label Content="Харукі М." Grid.Column="1" HorizontalAlignment="Left" Margin="123,362,0,0" VerticalAlignment="Top" Height="58" Width="400" FontSize="24" Foreground="#FF7E7E7E" FontFamily="/Проекта;component/#Jura Medium"/>
-        <Label Content="Леся Українка" Grid.Column="1" HorizontalAlignment="Left" Margin="123,462,0,0" VerticalAlignment="Top" Height="58" Width="400" FontSize="24" Foreground="#FF7E7E7E" FontFamily="/Проекта;component/#Jura Medium"/>
-        <Label Content="Кафка Ф." Grid.Column="1" HorizontalAlignment="Left" Margin="123,562,0,0" VerticalAlignment="Top" Height="58" Width="400" FontSize="24" Foreground="#FF7E7E7E" FontFamily="/Проекта;component/#Jura Medium"/>
+        <Label Content="Мій Ізмарагд" Grid.Column="1" HorizontalAlignment="Left" Margin="123,220,0,0" VerticalAlignment="Top" Height="58" Width="490" FontSize="24" Foreground="White" FontFamily="/Проекта;component/#Jura Medium"/>
+        <Label Content="Денс, денс, денс ..." Grid.Column="1" HorizontalAlignment="Left" Margin="123,320,0,0" VerticalAlignment="Top" Height="58" Width="490" FontSize="24" Foreground="White" FontFamily="/Проекта;component/#Jura Medium"/>
+        <Label Content="Лісова пісня" Grid.Column="1" HorizontalAlignment="Left" Margin="123,420,0,0" VerticalAlignment="Top" Height="58" Width="490" FontSize="24" Foreground="White" FontFamily="/Проекта;component/#Jura Medium"/>
+        <Label Content="Перевтілення" Grid.Column="1" HorizontalAlignment="Left" Margin="123,520,0,0" VerticalAlignment="Top" Height="58" Width="490" FontSize="24" Foreground="White" FontFamily="/Проекта;component/#Jura Medium"/>
+        <Label Content="Франко І. Я." Grid.Column="1" HorizontalAlignment="Left" Margin="123,272,0,0" VerticalAlignment="Top" Height="58" Width="400" FontSize="16" Foreground="#FF7E7E7E" FontFamily="/Проекта;component/#Jura Medium"/>
+        <Label Content="Харукі М." Grid.Column="1" HorizontalAlignment="Left" Margin="123,372,0,0" VerticalAlignment="Top" Height="58" Width="400" FontSize="16" Foreground="#FF7E7E7E" FontFamily="/Проекта;component/#Jura Medium"/>
+        <Label Content="Леся Українка" Grid.Column="1" HorizontalAlignment="Left" Margin="123,472,0,0" VerticalAlignment="Top" Height="58" Width="400" FontSize="16" Foreground="#FF7E7E7E" FontFamily="/Проекта;component/#Jura Medium"/>
+        <Label Content="Кафка Ф." Grid.Column="1" HorizontalAlignment="Left" Margin="123,572,0,0" VerticalAlignment="Top" Height="58" Width="400" FontSize="16" Foreground="#FF7E7E7E" FontFamily="/Проекта;component/#Jura Medium"/>
         <Label Content="65₴" Grid.Column="1" HorizontalAlignment="Left" Margin="545,260,0,0" VerticalAlignment="Top" Height="58" Width="90" FontSize="36" Foreground="#FFFFF3A5" FontFamily="/Проекта;component/#Jura Medium"/>
         <Label Content="75₴" Grid.Column="1" HorizontalAlignment="Left" Margin="545,360,0,0" VerticalAlignment="Top" Height="58" Width="90" FontSize="36" Foreground="#FFFFF3A5" FontFamily="/Проекта;component/#Jura Medium"/>
         <Label Content="45₴" Grid.Column="1" HorizontalAlignment="Left" Margin="545,460,0,0" VerticalAlignment="Top" Height="58" Width="90" FontSize="36" Foreground="#FFFFF3A5" FontFamily="/Проекта;component/#Jura Medium"/>
         <Label Content="50₴" Grid.Column="1" HorizontalAlignment="Left" Margin="545,560,0,0" VerticalAlignment="Top" Height="58" Width="90" FontSize="36" Foreground="#FFFFF3A5" FontFamily="/Проекта;component/#Jura Medium"/>
+        <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="455,78,0,0" VerticalAlignment="Top" Width="172" Height="36" Foreground="Black" Background="Black"/>
     </Grid>
 </Window>
