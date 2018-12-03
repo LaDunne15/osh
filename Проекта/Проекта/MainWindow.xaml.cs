@@ -18,6 +18,7 @@ namespace Проекта
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -25,15 +26,33 @@ namespace Проекта
             InitializeComponent();
             LEFT.Opacity = 0.5;
         }
-
+        int a =50, b =180;
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-
+            
+        }
+        public void Genre()
+        {
+            Genre1.Height = a;
+            Genre1.Width = b;
+            /*
+            Genre2.Height = a;
+            Genre2.Width = b;
+            Genre3.Height = a;
+            Genre3.Width = b;
+            Genre4.Height = a;
+            Genre4.Width = b;
+            Genre5.Height = a;
+            Genre5.Width = b;
+            Genre6.Height = a;
+            Genre6.Width = b;
+            Genre7.Height = a;
+            Genre7.Width = b;*/
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -78,130 +97,147 @@ namespace Проекта
                 Text2.Content = "0" + Convert.ToString(a);
         }
 
-        private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Genre1_MouseEnter(object sender, MouseEventArgs e)
         {
             Genre1.Height = 70;
-            Genre2.Height = 50;
-            Genre3.Height = 50;
-            Genre4.Height = 50;
-            Genre5.Height = 50;
-            Genre6.Height = 50;
-            Genre7.Height = 50;
             Genre1.Width = 200;
-            Genre2.Width = 180;
-            Genre3.Width = 180;
-            Genre4.Width = 180;
-            Genre5.Width = 180;
-            Genre6.Width = 180;
-            Genre7.Width = 180;
+            Genre1.Background = new SolidColorBrush(Color.FromArgb(70, 191, 41, 41));
+
         }
 
-        private void Genre2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Genre1.Height = 50;
-            Genre2.Height = 70;
-            Genre3.Height = 50;
-            Genre4.Height = 50;
-            Genre5.Height = 50;
-            Genre6.Height = 50;
-            Genre7.Height = 50;
-            Genre1.Width = 180;
-            Genre2.Width = 200;
-            Genre3.Width = 180;
-            Genre4.Width = 180;
-            Genre5.Width = 180;
-            Genre6.Width = 180;
-            Genre7.Width = 180;
+
         }
 
-        private void Genre3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Rectangle1_MouseEnter(object sender, MouseEventArgs e)
         {
-            Genre1.Height = 50;
-            Genre2.Height = 50;
-            Genre3.Height = 70;
-            Genre4.Height = 50;
-            Genre5.Height = 50;
-            Genre6.Height = 50;
-            Genre7.Height = 50;
-            Genre1.Width = 180;
-            Genre2.Width = 180;
-            Genre3.Width = 200;
-            Genre4.Width = 180;
-            Genre5.Width = 180;
-            Genre6.Width = 180;
-            Genre7.Width = 180;
+            Genre11.Height = 70;
+            Genre11.Width = 200;
+            Genre12.Height = 70;
+            Genre12.Width = 200;
         }
 
-        private void Genre4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Rectangle1_MouseLeave(object sender, MouseEventArgs e)
         {
-            Genre1.Height = 50;
-            Genre2.Height = 50;
-            Genre3.Height = 50;
-            Genre4.Height = 70;
-            Genre5.Height = 50;
-            Genre6.Height = 50;
-            Genre7.Height = 50;
-            Genre1.Width = 180;
-            Genre2.Width = 180;
-            Genre3.Width = 180;
-            Genre4.Width = 200;
-            Genre5.Width = 180;
-            Genre6.Width = 180;
-            Genre7.Width = 180;
+            Genre11.Height = a;
+            Genre11.Width = b;
+            Genre12.Height = a;
+            Genre12.Width = b;
         }
 
-        private void Genre5_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Rectangle2_MouseEnter(object sender, MouseEventArgs e)
         {
-            Genre1.Height = 50;
-            Genre2.Height = 50;
-            Genre3.Height = 50;
-            Genre4.Height = 50;
-            Genre5.Height = 70;
-            Genre6.Height = 50;
-            Genre7.Height = 50;
-            Genre1.Width = 180;
-            Genre2.Width = 180;
-            Genre3.Width = 180;
-            Genre4.Width = 180;
-            Genre5.Width = 200;
-            Genre6.Width = 180;
-            Genre7.Width = 180;
+            Genre21.Height = 70;
+            Genre21.Width = 200;
+            Genre22.Height = 70;
+            Genre22.Width = 200;
         }
 
-        private void Genre6_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Rectangle2_MouseLeave(object sender, MouseEventArgs e)
         {
-            Genre1.Height = 50;
-            Genre2.Height = 50;
-            Genre3.Height = 50;
-            Genre4.Height = 50;
-            Genre5.Height = 50;
-            Genre6.Height = 70;
-            Genre7.Height = 50;
-            Genre1.Width = 180;
-            Genre2.Width = 180;
-            Genre3.Width = 180;
-            Genre4.Width = 180;
-            Genre5.Width = 180;
-            Genre6.Width = 200;
-            Genre7.Width = 180;
+            Genre21.Height = a;
+            Genre21.Width = b;
+            Genre22.Height = a;
+            Genre22.Width = b;
         }
 
-        private void Genre7_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Rectangle3_MouseEnter(object sender, MouseEventArgs e)
         {
-            Genre1.Height = 50;
-            Genre2.Height = 50;
-            Genre3.Height = 50;
-            Genre4.Height = 50;
-            Genre5.Height = 50;
-            Genre6.Height = 50;
-            Genre7.Height = 70;
-            Genre1.Width = 180;
-            Genre2.Width = 180;
-            Genre3.Width = 180;
-            Genre4.Width = 180;
-            Genre5.Width = 180;
-            Genre6.Width = 180;
-            Genre7.Width = 200;
+            Genre31.Height = 70;
+            Genre31.Width = 200;
+            Genre32.Height = 70;
+            Genre32.Width = 200;
+        }
+
+        private void Rectangle3_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Genre31.Height = a;
+            Genre31.Width = b;
+            Genre32.Height = a;
+            Genre32.Width = b;
+        }
+
+        private void Rectangle3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Rectangle1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+           
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Basket1.Margin = new Thickness(0, -300, 0, 0);
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Basket2.Margin = new Thickness(0, -400, 0, 0);
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Basket3.Margin = new Thickness(0, -500, 0, 0);
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            Basket4.Margin = new Thickness(0, -600, 0, 0);
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            Basket5.Margin = new Thickness(0, -700, 0, 0);
+            
+        }
+
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MAIN.Visibility = Visibility.Hidden;
+            LOG.Visibility = Visibility.Visible;
+        }
+
+        private void LogIn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            LOG.Visibility = Visibility.Hidden;
+            MAIN.Visibility = Visibility.Visible;
+            LG.Text = "ЛОГІН";
+            PW.Text = "ПАРОЛЬ";
+            NICK.Visibility = Visibility.Hidden;
+            RETURN.Visibility = Visibility.Hidden;
+            NEW.Visibility = Visibility.Visible;
+            NEW01.Visibility = Visibility.Visible;
+            NEW02.Visibility = Visibility.Visible;
+        }
+
+        private void NEW_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            NICK.Visibility = Visibility.Visible;
+            RETURN.Visibility = Visibility.Visible;
+            NEW.Visibility = Visibility.Hidden;
+            NEW01.Visibility = Visibility.Hidden;
+            NEW02.Visibility = Visibility.Hidden;
+        }
+
+        private void RETURN_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            NICK.Visibility = Visibility.Hidden;
+            RETURN.Visibility = Visibility.Hidden;
+            NEW.Visibility = Visibility.Visible;
+            NEW01.Visibility = Visibility.Visible;
+            NEW02.Visibility = Visibility.Visible;
+
+        }
+
+
+        private void Genre1_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Genre1.Height = a;
+            Genre1.Width = b;
         }
     }
 }
+
