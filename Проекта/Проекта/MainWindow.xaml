@@ -52,7 +52,7 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Grid Background="#FF191616" x:Name="LOG" Visibility="Hidden">
+        <Grid Background="#FF191616" x:Name="LOG" Visibility="Visible">
             <Rectangle Fill="#B2FFA6A9" HorizontalAlignment="Left" Height="717" Margin="14,0,0,0" VerticalAlignment="Top" Width="58"/>
             <Rectangle Fill="#B27ADCB8" HorizontalAlignment="Left" Height="717" Margin="182,0,0,0" VerticalAlignment="Top" Width="58"/>
             <TextBox x:Name="LG" HorizontalAlignment="Left" Height="50" Margin="479,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" Background="#FFEED685" FontSize="36" FontFamily="/Проекта;component/#Jura Medium" MouseLeftButtonDown="LG_MouseLeftButtonDown" PreviewTextInput="LG_PreviewTextInput" TextChanged="LG_TextChanged"/>
@@ -82,7 +82,7 @@
 
 
         </Grid>
-        <Grid Background="White" x:Name="MAIN" Visibility="Visible">
+        <Grid Background="White" x:Name="MAIN" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="640" />
@@ -149,8 +149,8 @@
                 </Grid>
 
             </StackPanel>
-            <Label Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="78,634,0,0" FontSize="60" Foreground="White" FontFamily="MADE Evolve Sans EVO" RenderTransformOrigin="0.225,0.2" Width="42"/>
-            <Rectangle x:Name="ADD" Grid.Column="0" Height="60" Margin="7,649,7,7" Fill="#7F683131" MouseLeftButtonDown="ADD_MouseLeftButtonDown"/>
+            <Label x:Name="A" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="78,634,0,0" FontSize="60" Foreground="White" FontFamily="MADE Evolve Sans EVO" RenderTransformOrigin="0.225,0.2" Width="42" Visibility="Hidden"/>
+            <Rectangle x:Name="ADD" Grid.Column="0" Height="60" Margin="7,649,7,7" Fill="#7F683131" MouseLeftButtonDown="ADD_MouseLeftButtonDown" Visibility="Hidden"/>
             <Rectangle Grid.Column="1">
                 <Rectangle.Effect>
                     <BlurEffect/>
@@ -278,7 +278,8 @@
                 </Grid>
             </StackPanel>
             <Image Grid.Column="1" Source="EXIT.png" Width="64" Margin="18,-23,558,660" MouseLeftButtonDown="Image_MouseLeftButtonDown" OpacityMask="White"/>
-            <Label Content="Label" Grid.Column="1" HorizontalAlignment="Left" Margin="102,8,0,0" VerticalAlignment="Top" Height="66" Width="526" Foreground="White" FontFamily="/Проекта;component/#Jura Medium" FontSize="36"/>
+            <Label x:Name="congr" Content="Label" Grid.Column="1" HorizontalAlignment="Left" Margin="102,8,0,0" VerticalAlignment="Top" Height="66" Width="462" Foreground="White" FontFamily="/Проекта;component/#Jura Medium" FontSize="36"/>
+            <Image Source="S.png" Grid.Column="1" Margin="580,-10,12,683" MouseLeftButtonDown="Image_MouseLeftButtonDown_1"></Image>
 
         </Grid>
         <Grid x:Name="AddBook" Visibility="Hidden" Background="#CC000000">
@@ -348,6 +349,36 @@
             <Label x:Name="I4" Content="аааа" Foreground="#FF767676" FontSize="48" FontFamily="/Проекта;component/#Jura Medium" Margin="92,306,89,181"/>
 
         </Grid>
+        <Grid x:Name="Acc" Visibility="Hidden" Background="#CC401313">
+            <Rectangle Fill="#FF469BAE" Margin="98,40,60,224"></Rectangle>
+            <Image x:Name="Exit2" Source="Close.png" Height="50" Margin="416,56,-416,612" Width="50" MouseLeftButtonDown="Exit2_MouseLeftButtonDown"></Image>
+            <Label Content="Новий логін:" HorizontalAlignment="Left" Margin="184,113,0,0" VerticalAlignment="Top" Height="60" Width="272" FontFamily="/Проекта;component/#Jura Medium" FontSize="36"/>
+            <Label Content="Новий пароль:" HorizontalAlignment="Left" Margin="148,302,0,0" VerticalAlignment="Top" Height="60" Width="272" FontFamily="/Проекта;component/#Jura Medium" FontSize="36"/>
+            <Rectangle Fill="Black" HorizontalAlignment="Left" Height="5" Margin="122,282,0,0" VerticalAlignment="Top" Width="830"/>
+            <TextBox x:Name="NEWLOG" HorizontalAlignment="Left" Height="48" Margin="468,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="36" FontFamily="/Проекта;component/#Jura Medium"/>
+            <Button x:Name="_1" Content="Змінити логін" HorizontalAlignment="Left" Margin="558,190,0,0" VerticalAlignment="Top" Width="197" Height="68" FontSize="24" FontFamily="/Проекта;component/#Jura Medium" Click="Button_Click_13"/>
+            <TextBox x:Name="NEWPASS" HorizontalAlignment="Left" Height="48" Margin="468,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" FontSize="36" FontFamily="/Проекта;component/#Jura Medium"/>
+            <Button x:Name="_2" Content="Змінити пароль" HorizontalAlignment="Left" Margin="558,378,0,0" VerticalAlignment="Top" Width="201" Height="68" FontSize="24" FontFamily="/Проекта;component/#Jura Medium" Click="Button_Click_14"/>
+            <Button x:Name="_3" Content="Видалити аккаунт" HorizontalAlignment="Left" Margin="16,662,0,0" VerticalAlignment="Top" Width="249" Height="38" FontSize="24" FontFamily="/Проекта;component/#Jura Medium" Click="Button_Click_1455" Background="#7FFFFFFF"/>
+
+        </Grid>
+        <Grid x:Name="delacc" Margin="290,610,323,18" Background="#FFFF8989" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock FontFamily="/Проекта;component/#Jura Medium" Foreground="Black" FontSize="18" Margin="18,9,77,27" Grid.RowSpan="2">Ви дійсно хочете видалити акаунт?</TextBlock>
+
+            <WrapPanel Grid.Row="2" HorizontalAlignment="Right" Margin="0,25,20,0">                
+                <Button IsDefault="True" MinWidth="60" Margin="0,0,10,0" Click="Button_Click_755" Content="OK" Height="27" Width="75"/>
+
+                <Button IsCancel="True" MinWidth="60" Click="Button_Click_655" Width="75">Скасувати</Button>
+            </WrapPanel>
+
+        </Grid>
+
+
 
     </Grid>
 </Window>

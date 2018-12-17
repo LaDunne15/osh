@@ -27,6 +27,7 @@ namespace Проекта
         ListBook list = new ListBook();
         List<Book> BBook = new List<Book> { };
         List<Account> acc = new List<Account> {};
+        string Name;
         int onlineGenre = 1;
         int sort = 0;
         
@@ -225,6 +226,7 @@ namespace Проекта
                     if(i.Login.Replace(" ","")==LG.Text&&i.password.Replace(" ","")==PW.Text)
                     {
                         IsFind = true;
+                        Name=i.Nick.Replace(" ","");
                     }
                 }
                 if (IsFind)
@@ -237,6 +239,17 @@ namespace Проекта
                     PW_1.Visibility = Visibility.Hidden;
                     LOG.Visibility = Visibility.Hidden;
                     MAIN.Visibility = Visibility.Visible;
+                    if (Name != "admin")
+                    {
+                        A.Visibility = Visibility.Hidden;
+                        ADD.Visibility = Visibility.Hidden;
+                    }
+                    else
+                    {
+                        A.Visibility = Visibility.Visible;
+                        ADD.Visibility = Visibility.Visible;
+                    }
+                    congr.Content = "Вас обслуговує " + Name;
                 }
                 else
                     MessageBox.Show("Акаунт не знайдено!");
@@ -271,7 +284,7 @@ namespace Проекта
                 }
                 else
                     MessageBox.Show("Паролі не cпівпадають!");
-                    
+                
             }
         }
 
@@ -1085,6 +1098,77 @@ namespace Проекта
             BookINFO.Visibility = Visibility.Visible;
             RReleaze(4);
 
+        }
+
+        private void Image_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        {
+            Acc.Visibility = Visibility.Visible;
+            if (Name == "admin")
+            {
+                _1.IsEnabled = false;
+                NEWLOG.IsEnabled = false;
+            }
+            else
+            {
+                _1.IsEnabled = true;
+                NEWLOG.IsEnabled = true;
+            }
+        }
+
+        private void Button_Click_13(object sender, RoutedEventArgs e)
+        {
+            string b = "UPDATE LOGIN SET Login='" + NEWLOG.Text+"' WHERE Nickname='"+Name+"'";
+            
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(b, connection);
+                command.ExecuteNonQuery();
+            }
+            NEWLOG.Text = "";
+        }
+
+        private void Exit2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Acc.Visibility = Visibility.Hidden;
+            NEWPASS.Text = "";
+            NEWLOG.Text = "";
+        }
+
+        private void Button_Click_14(object sender, RoutedEventArgs e)
+        {
+            string b = "UPDATE LOGIN SET Password='" + NEWPASS.Text + "' WHERE Nickname='" + Name+"'";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(b, connection);
+                command.ExecuteNonQuery();
+            }
+            NEWPASS.Text = "";
+        }
+
+        private void Button_Click_655(object sender, RoutedEventArgs e)
+        {
+            delacc.Visibility = Visibility.Hidden;
+        }
+
+        private void Button_Click_1455(object sender, RoutedEventArgs e)
+        {
+            delacc.Visibility = Visibility.Visible;
+        }
+
+        private void Button_Click_755(object sender, RoutedEventArgs e)
+        {
+            string b = "DELETE LOGIN WHERE Nickname='" + Name + "'";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(b, connection);
+                command.ExecuteNonQuery();
+            }
+            NEWPASS.Text = "";
+            delacc.Visibility = Visibility.Hidden;
         }
 
         private void Genre2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
