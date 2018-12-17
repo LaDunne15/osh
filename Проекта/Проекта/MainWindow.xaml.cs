@@ -25,7 +25,10 @@ namespace Проекта
         
         string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=Proekta;Integrated Security=True";
         ListBook list = new ListBook();
+        List<Book> BBook = new List<Book> { };
         int onlineGenre = 1;
+        int sort = 0;
+        
         public void Write(int write)
         {
             if(write == 0)
@@ -82,6 +85,7 @@ namespace Проекта
             InitializeComponent();
             LEFT.Opacity = 0.5;
             gr.Content = "Видалити\nкнигу\nіз бази";
+            Repaing(0);
         }
         int a =40, b =180;
         int LOGlever = 1;
@@ -89,25 +93,6 @@ namespace Проекта
         {
             
         }
-        public void Genre()
-        {
-            Genre1.Height = a;
-            Genre1.Width = b;
-            /*
-            Genre2.Height = a;
-            Genre2.Width = b;
-            Genre3.Height = a;
-            Genre3.Width = b;
-            Genre4.Height = a;
-            Genre4.Width = b;
-            Genre5.Height = a;
-            Genre5.Width = b;
-            Genre6.Height = a;
-            Genre6.Width = b;
-            Genre7.Height = a;
-            Genre7.Width = b;*/
-        }
-
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
@@ -307,7 +292,11 @@ namespace Проекта
         public void Releaze()
         {
             list.Lista.Clear();
-            string b = "SELECT * FROM Books";
+            string b;
+            if(sort==1)
+            b = "SELECT * FROM Books order by Price";
+            else
+            b = "SELECT * FROM Books order by Name";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -334,19 +323,19 @@ namespace Проекта
                 Write(5);
                 Book_One1.Content = G1.Lista[i * 5 + 0].Name;
                 Book_One2.Content = G1.Lista[i * 5 + 0].Author;
-                Book_One3.Content = G1.Lista[i * 5 + 0].price;
+                Book_One3.Content = G1.Lista[i * 5 + 0].price + "₴";
                 Book_Two1.Content = G1.Lista[i * 5 + 1].Name;
                 Book_Two2.Content = G1.Lista[i * 5 + 1].Author;
-                Book_Two3.Content = G1.Lista[i * 5 + 1].price;
+                Book_Two3.Content = G1.Lista[i * 5 + 1].price + "₴";
                 Book_Three1.Content = G1.Lista[i * 5 + 2].Name;
                 Book_Three2.Content = G1.Lista[i * 5 + 2].Author;
-                Book_Three3.Content = G1.Lista[i * 5 + 2].price;
+                Book_Three3.Content = G1.Lista[i * 5 + 2].price + "₴";
                 Book_Four1.Content = G1.Lista[i * 5 + 3].Name;
                 Book_Four2.Content = G1.Lista[i * 5 + 3].Author;
-                Book_Four3.Content = G1.Lista[i * 5 + 3].price;
+                Book_Four3.Content = G1.Lista[i * 5 + 3].price + "₴";
                 Book_Five1.Content = G1.Lista[i * 5 + 4].Name;
                 Book_Five2.Content = G1.Lista[i * 5 + 4].Author;
-                Book_Five3.Content = G1.Lista[i * 5 + 4].price;
+                Book_Five3.Content = G1.Lista[i * 5 + 4].price + "₴";
             }
             else
             {
@@ -359,48 +348,122 @@ namespace Проекта
                     Write(1);
                     Book_One1.Content = G1.Lista[i * 5 + 0].Name;
                     Book_One2.Content = G1.Lista[i * 5 + 0].Author;
-                    Book_One3.Content = G1.Lista[i * 5 + 0].price;
+                    Book_One3.Content = G1.Lista[i * 5 + 0].price+ "₴";
                 }
                 if (G1.Lista.Count - i * 5 == 2)
                 {
                     Write(2);
                     Book_One1.Content = G1.Lista[i * 5 + 0].Name;
                     Book_One2.Content = G1.Lista[i * 5 + 0].Author;
-                    Book_One3.Content = G1.Lista[i * 5 + 0].price;
+                    Book_One3.Content = G1.Lista[i * 5 + 0].price + "₴";
                     Book_Two1.Content = G1.Lista[i * 5 + 1].Name;
                     Book_Two2.Content = G1.Lista[i * 5 + 1].Author;
-                    Book_Two3.Content = G1.Lista[i * 5 + 1].price;
+                    Book_Two3.Content = G1.Lista[i * 5 + 1].price + "₴";
                 }
                 if (G1.Lista.Count - i * 5 == 3)
                 {
                     Write(3);
                     Book_One1.Content = G1.Lista[i * 5 + 0].Name;
                     Book_One2.Content = G1.Lista[i * 5 + 0].Author;
-                    Book_One3.Content = G1.Lista[i * 5 + 0].price;
+                    Book_One3.Content = G1.Lista[i * 5 + 0].price + "₴";
                     Book_Two1.Content = G1.Lista[i * 5 + 1].Name;
                     Book_Two2.Content = G1.Lista[i * 5 + 1].Author;
-                    Book_Two3.Content = G1.Lista[i * 5 + 1].price;
+                    Book_Two3.Content = G1.Lista[i * 5 + 1].price + "₴";
                     Book_Three1.Content = G1.Lista[i * 5 + 2].Name;
                     Book_Three2.Content = G1.Lista[i * 5 + 2].Author;
-                    Book_Three3.Content = G1.Lista[i * 5 + 2].price;
+                    Book_Three3.Content = G1.Lista[i * 5 + 2].price + "₴";
                 }
                 if (G1.Lista.Count - i * 5 == 4)
                 {
                     Write(4);
                     Book_One1.Content = G1.Lista[i * 5 + 0].Name;
                     Book_One2.Content = G1.Lista[i * 5 + 0].Author;
-                    Book_One3.Content = G1.Lista[i * 5 + 0].price;
+                    Book_One3.Content = G1.Lista[i * 5 + 0].price + "₴";
                     Book_Two1.Content = G1.Lista[i * 5 + 1].Name;
                     Book_Two2.Content = G1.Lista[i * 5 + 1].Author;
-                    Book_Two3.Content = G1.Lista[i * 5 + 1].price;
+                    Book_Two3.Content = G1.Lista[i * 5 + 1].price + "₴";
                     Book_Three1.Content = G1.Lista[i * 5 + 2].Name;
                     Book_Three2.Content = G1.Lista[i * 5 + 2].Author;
-                    Book_Three3.Content = G1.Lista[i * 5 + 2].price;
+                    Book_Three3.Content = G1.Lista[i * 5 + 2].price + "₴";
                     Book_Four1.Content = G1.Lista[i * 5 + 3].Name;
                     Book_Four2.Content = G1.Lista[i * 5 + 3].Author;
-                    Book_Four3.Content = G1.Lista[i * 5 + 3].price;
+                    Book_Four3.Content = G1.Lista[i * 5 + 3].price + "₴";
                 }
             }
+        }
+        public void Releaze1()
+        {
+            if (BBook.Count== 5)
+            {
+                Repaing(5);
+                B11.Content = BBook[0].Name;
+                B12.Content = BBook[0].Author;
+                B13.Content = BBook[0].price + "₴";
+                B21.Content = BBook[1].Name;
+                B22.Content = BBook[1].Author;
+                B23.Content = BBook[1].price + "₴";
+                B31.Content = BBook[2].Name;
+                B32.Content = BBook[2].Author;
+                B33.Content = BBook[2].price + "₴";
+                B41.Content = BBook[3].Name;
+                B42.Content = BBook[3].Author;
+                B43.Content = BBook[3].price + "₴";
+                B51.Content = BBook[4].Name;
+                B52.Content = BBook[4].Author;
+                B53.Content = BBook[4].price + "₴";
+            }
+            if (BBook.Count == 4)
+            {
+                Repaing(4);
+                B11.Content = BBook[0].Name;
+                B12.Content = BBook[0].Author;
+                B13.Content = BBook[0].price + "₴";
+                B21.Content = BBook[1].Name;
+                B22.Content = BBook[1].Author;
+                B23.Content = BBook[1].price + "₴";
+                B31.Content = BBook[2].Name;
+                B32.Content = BBook[2].Author;
+                B33.Content = BBook[2].price + "₴";
+                B41.Content = BBook[3].Name;
+                B42.Content = BBook[3].Author;
+                B43.Content = BBook[3].price + "₴";
+            }
+            if (BBook.Count == 3)
+            {
+                Repaing(3);
+                B11.Content = BBook[0].Name;
+                B12.Content = BBook[0].Author;
+                B13.Content = BBook[0].price + "₴";
+                B21.Content = BBook[1].Name;
+                B22.Content = BBook[1].Author;
+                B23.Content = BBook[1].price + "₴";
+                B31.Content = BBook[2].Name;
+                B32.Content = BBook[2].Author;
+                B33.Content = BBook[2].price + "₴";
+            }
+            if (BBook.Count == 2)
+            {
+                Repaing(2);
+                B11.Content = BBook[0].Name;
+                B12.Content = BBook[0].Author;
+                B13.Content = BBook[0].price + "₴";
+                B21.Content = BBook[1].Name;
+                B22.Content = BBook[1].Author;
+                B23.Content = BBook[1].price + "₴";
+            }
+            if (BBook.Count == 1)
+            {
+                Repaing(1);
+                B11.Content = BBook[0].Name;
+                B12.Content = BBook[0].Author;
+                B13.Content = BBook[0].price + "₴";
+            }
+            double sum = 0;
+            foreach(Book i in BBook)
+            {
+                sum += i.price;
+            }
+            SUM.Content = sum + "₴";
         }
 
         private void Genre1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -729,6 +792,158 @@ namespace Проекта
         {
             onlineGenre = 11;
             Text2.Content = "01";
+            Releaze();
+        }
+
+        private void Button_Click_8(object sender, RoutedEventArgs e)
+        {
+            BBook.Remove(BBook[1]);
+            Releaze1();
+        }
+
+        private void Button_Click_9(object sender, RoutedEventArgs e)
+        {
+            if (BBook.Count == 0)
+                Basket1.Margin = new Thickness(0, -1500, 0, 0);
+            else
+            {
+                BBook.Remove(BBook[0]);
+            }
+            Releaze1();
+        }
+        public void Repaing(int write)
+        {
+            if (write == 0)
+            {
+                Basket1.Margin = new Thickness(0, -1500, 0, 0);
+                Basket2.Margin = new Thickness(0, -1500, 0, 0);
+                Basket3.Margin = new Thickness(0, -1500, 0, 0);
+                Basket4.Margin = new Thickness(0, -1500, 0, 0);
+                Basket5.Margin = new Thickness(0, -1500, 0, 0);
+            }
+            if (write == 1)
+            {
+                Basket1.Margin = new Thickness();
+                Basket2.Margin = new Thickness(0, -1500, 0, 0);
+                Basket3.Margin = new Thickness(0, -1500, 0, 0);
+                Basket4.Margin = new Thickness(0, -1500, 0, 0);
+                Basket5.Margin = new Thickness(0, -1500, 0, 0);
+            }
+            if (write == 2)
+            {
+                Basket1.Margin = new Thickness();
+                Basket2.Margin = new Thickness();
+                Basket3.Margin = new Thickness(0, -1500, 0, 0);
+                Basket4.Margin = new Thickness(0, -1500, 0, 0);
+                Basket5.Margin = new Thickness(0, -1500, 0, 0);
+            }
+            if (write == 3)
+            {
+                Basket1.Margin = new Thickness();
+                Basket2.Margin = new Thickness();
+                Basket3.Margin = new Thickness();
+                Basket4.Margin = new Thickness(0, -1500, 0, 0);
+                Basket5.Margin = new Thickness(0, -1500, 0, 0);
+            }
+            if (write == 4)
+            {
+                Basket1.Margin = new Thickness();
+                Basket2.Margin = new Thickness();
+                Basket3.Margin = new Thickness();
+                Basket4.Margin = new Thickness();
+                Basket5.Margin = new Thickness(0, -1500, 0, 0);
+            }
+            if (write == 5)
+            {
+                Basket1.Margin = new Thickness();
+                Basket2.Margin = new Thickness();
+                Basket3.Margin = new Thickness();
+                Basket4.Margin = new Thickness();
+                Basket5.Margin = new Thickness();
+            }
+        }
+
+        private void Book11_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (BBook.Count < 5)
+                BBook.Add(new Book(Convert.ToString(Book_One1.Content), (Convert.ToString(Book_One2.Content)), Convert.ToDouble(Convert.ToString(Book_One3.Content).TrimEnd('₴')), "", onlineGenre));
+            else
+                MessageBox.Show("Корзина повна");
+            Repaing(BBook.Count);
+            Releaze1();
+        }
+
+        private void Book22_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (BBook.Count < 5)
+                BBook.Add(new Book(Convert.ToString(Book_Two1.Content), (Convert.ToString(Book_Two2.Content)), Convert.ToDouble(Convert.ToString(Book_Two3.Content).TrimEnd('₴')), "", onlineGenre));
+            else
+                MessageBox.Show("Корзина повна");
+            Releaze1();
+        }
+
+        private void Book33_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (BBook.Count < 5)
+                BBook.Add(new Book(Convert.ToString(Book_Three1.Content), (Convert.ToString(Book_Three2.Content)), Convert.ToDouble(Convert.ToString(Book_Three3.Content).TrimEnd('₴')), "", onlineGenre));
+            else
+                MessageBox.Show("Корзина повна");
+            Releaze1();
+        }
+
+        private void Book44_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (BBook.Count < 5)
+                BBook.Add(new Book(Convert.ToString(Book_Four1.Content), (Convert.ToString(Book_Four2.Content)), Convert.ToDouble(Convert.ToString(Book_Four3.Content).TrimEnd('₴')), "", onlineGenre));
+            else
+                MessageBox.Show("Корзина повна");
+            Releaze1();
+        }
+
+        private void Book55_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (BBook.Count < 5)
+                BBook.Add(new Book(Convert.ToString(Book_Five1.Content), (Convert.ToString(Book_Five2.Content)), Convert.ToDouble(Convert.ToString(Book_Five3.Content).TrimEnd('₴')), "", onlineGenre));
+            else
+                MessageBox.Show("Корзина повна");
+            Releaze1();
+        }
+
+        private void Button_Click_10(object sender, RoutedEventArgs e)
+        {
+            BBook.Remove(BBook[2]);
+            Releaze1();
+        }
+
+        private void Button_Click_11(object sender, RoutedEventArgs e)
+        {
+            BBook.Remove(BBook[3]);
+            Releaze1();
+        }
+
+        private void Button_Click_12(object sender, RoutedEventArgs e)
+        {
+            BBook.Remove(BBook[4]);
+            Releaze1();
+        }
+
+        private void END_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Замовлення оформлено!");
+            BBook.Clear();
+            Repaing(0);
+            Releaze1();
+        }
+
+        private void sort1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            sort = 1;
+            Releaze();
+        }
+
+        private void sort2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            sort = 2;
             Releaze();
         }
 

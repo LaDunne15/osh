@@ -17,7 +17,7 @@
         </Style>
         <Style x:Key="BNameBUT" TargetType="Rectangle">
             <Setter Property="Height" Value="80"/>
-            <EventSetter Event="Rectangle.MouseLeftButtonDown" Handler="cking"/>
+            <Setter Property="Fill" Value="Transparent"/>
         </Style>
         <Style x:Key="BNAME" TargetType="Label">
             <Setter Property="HorizontalAlignment" Value="Left"/>
@@ -75,7 +75,7 @@
 
 
         </Grid>
-        <Grid Background="White" x:Name="MAIN" Visibility="Visible">
+        <Grid Background="White" x:Name="MAIN" Visibility="Hidden">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="640" />
@@ -195,155 +195,83 @@
                 </Rectangle.RenderTransform>
             </Rectangle>
             <StackPanel Grid.Column="1" Margin="0,125,0,110">
-                <Grid x:Name="Book1" Margin="10,0" Height="85">
+                <Grid x:Name="Book1" Margin="10,0" Height="85" Visibility="Hidden">
                     <Rectangle Style="{StaticResource BName}"/>
                     <Label x:Name="Book_One1" Content="Тигролови" Style="{StaticResource BNAME}"/>
                     <Label x:Name="Book_One2" Content="Багряний І. П." Style="{StaticResource BAUTHOR}" />
                     <Label x:Name="Book_One3" Content="50₴" Style="{StaticResource PRICE}"/>
-                    <Rectangle x:Name="Book11" Style="{StaticResource BNameBUT}"/>
+                    <Rectangle x:Name="Book11" Style="{StaticResource BNameBUT}" MouseLeftButtonDown="Book11_MouseLeftButtonDown"/>
                 </Grid>
-                <Grid x:Name="Book2" Margin="10,15" Height="85">
+                <Grid x:Name="Book2" Margin="10,15" Height="85" Visibility="Hidden">
                     <Rectangle Style="{StaticResource BName}"/>
                     <Label x:Name="Book_Two1" Content="Мій ізмарагд" Style="{StaticResource BNAME}"/>
                     <Label x:Name="Book_Two2" Content="Франко І. Я." Style="{StaticResource BAUTHOR}" />
                     <Label x:Name="Book_Two3" Content="65₴" Style="{StaticResource PRICE}"/>
-                    <Rectangle x:Name="Book22" Style="{StaticResource BNameBUT}"/>
+                    <Rectangle x:Name="Book22" Style="{StaticResource BNameBUT}" MouseLeftButtonDown="Book22_MouseLeftButtonDown"/>
                 </Grid>
-                <Grid x:Name="Book3" Margin="10,0" Height="85">
+                <Grid x:Name="Book3" Margin="10,0" Height="85" Visibility="Hidden">
                     <Rectangle Style="{StaticResource BName}"/>
                     <Label x:Name="Book_Three1" Content="Денс,денс,денс..." Style="{StaticResource BNAME}"/>
                     <Label x:Name="Book_Three2" Content="Харукі М." Style="{StaticResource BAUTHOR}" />
                     <Label x:Name="Book_Three3" Content="45₴" Style="{StaticResource PRICE}"/>
-                    <Rectangle x:Name="Book33" Style="{StaticResource BNameBUT}"/>
+                    <Rectangle x:Name="Book33" Style="{StaticResource BNameBUT}" MouseLeftButtonDown="Book33_MouseLeftButtonDown"/>
                 </Grid>
-                <Grid x:Name="Book4" Margin="10,15" Height="85">
+                <Grid x:Name="Book4" Margin="10,15" Height="85" Visibility="Hidden">
                     <Rectangle Style="{StaticResource BName}"/>
                     <Label x:Name="Book_Four1" Content="Лісова пісня" Style="{StaticResource BNAME}"/>
                     <Label x:Name="Book_Four2" Content="Леся Українка" Style="{StaticResource BAUTHOR}" />
                     <Label x:Name="Book_Four3" Content="65₴" Style="{StaticResource PRICE}"/>
-                    <Rectangle x:Name="Book44" Style="{StaticResource BNameBUT}"/>
+                    <Rectangle x:Name="Book44" Style="{StaticResource BNameBUT}" MouseLeftButtonDown="Book44_MouseLeftButtonDown"/>
                 </Grid>
-                <Grid x:Name="Book5" Margin="10,0" Height="85">
+                <Grid x:Name="Book5" Margin="10,0" Height="85" Visibility="Hidden">
                     <Rectangle Style="{StaticResource BName}"/>
                     <Label x:Name="Book_Five1" Content="Перевтілення" Style="{StaticResource BNAME}"/>
                     <Label x:Name="Book_Five2" Content="Кафка Ф." Style="{StaticResource BAUTHOR}" />
                     <Label x:Name="Book_Five3" Content="65₴" Style="{StaticResource PRICE}"/>
-                    <Rectangle x:Name="Book55" Style="{StaticResource BNameBUT}"/>
+                    <Rectangle x:Name="Book55" Style="{StaticResource BNameBUT}" MouseLeftButtonDown="Book55_MouseLeftButtonDown"/>
                 </Grid>
             </StackPanel>
             <Label x:Name="Text2" Content="01" Grid.Column="1" HorizontalAlignment="Left" Margin="289,618,0,0" VerticalAlignment="Top" Height="66" Width="88" FontSize="36" Cursor="Arrow" BorderBrush="Red" Foreground="White" FontStretch="Condensed" FontFamily="/Проекта;component/#Orbitron Medium" FontStyle="Italic"/>
             <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="455,78,0,0" VerticalAlignment="Top" Width="172" Height="36" Foreground="Black" Background="#FFC57373">
-                <ComboBoxItem Content="По ціні" IsSelected="True"></ComboBoxItem>
-                <ComboBoxItem Content="По алфавіту"></ComboBoxItem>
+                <ComboBoxItem x:Name="sort1" Content="По ціні" IsSelected="True" MouseLeftButtonDown="sort1_MouseLeftButtonDown"></ComboBoxItem>
+                <ComboBoxItem x:Name="sort2" Content="По алфавіту" MouseLeftButtonDown="sort2_MouseLeftButtonDown"></ComboBoxItem>
             </ComboBox>
-
             <StackPanel Grid.Column="2">
                 <Label Content="Кошик" Foreground="White" FontSize="36" FontFamily="/Проекта;component/#Jura Medium" Grid.Column="2" />
-                <Grid x:Name="Basket1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="64"/>
-                        <ColumnDefinition Width="24*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="75"/>
-                        <RowDefinition Height="30"/>
-                    </Grid.RowDefinitions>
-                    <Image Grid.Column="0" Grid.Row="0" Source="frontside.png"/>
-                    <Label Grid.Column="1" Grid.Row="0" Foreground="White" FontSize="18" FontFamily="/Проекта;component/#Jura Medium">
-                        <TextBlock x:Name="BN1" TextTrimming="CharacterEllipsis">
-                        Тигролови
-                        </TextBlock>
-                    </Label>
-                    <Label Grid.Column="1" Grid.Row="0" Content="Багряний І. П." Margin="0,15" Foreground="#7FFFFFFF" VerticalAlignment="Bottom" FontFamily="/Проекта;component/#Jura Medium"/>
-                    <Button Grid.Column="0" Grid.Row="1" Margin="5,5,5,5" Background="#FF6FA08A" BorderBrush="#FF6FA08A" Content="X" Foreground="White" Click="Button_Click_1"/>
-                    <Label Grid.Column="1" Grid.Row="1" Content="50₴" Foreground="White" FontFamily="/Проекта;component/#Jura Medium" HorizontalAlignment="Center" FontSize="18"/>
+                <Grid x:Name="Basket1" Height="100" Width="200" Margin="0,-400,0,0">
+                    <Label x:Name="B11" Content="Тигролови" Foreground="White" FontFamily="/Проекта;component/#Jura Medium" FontSize="24" Margin="0,0,41,60" />
+                    <Label x:Name="B12" Content="Багряний І. В." Foreground="White" FontSize="16" FontFamily="/Проекта;component/#Jura Medium" Margin="3,31,41,37"/>
+                    <Label x:Name="B13" Content="50₴" Foreground="White" FontSize="36" FontFamily="/Проекта;component/#Jura Medium" Margin="0,46,41,0"/>
+                    <Button Margin="156,0,5,0" Background="#FF247E79" Content="X" FontFamily="/Проекта;component/#Jura Medium" FontSize="24" Foreground="White" BorderBrush="White" Click="Button_Click_9"/>
                 </Grid>
-                <Grid x:Name="Basket2" Margin="0,0,0,0" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="64"/>
-                        <ColumnDefinition Width="24*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="75"/>
-                        <RowDefinition Height="30"/>
-                    </Grid.RowDefinitions>
-                    <Image Grid.Column="0" Grid.Row="0" Source="frontside.png"/>
-                    <Label Grid.Column="1" Grid.Row="0"  Foreground="White" FontSize="18" FontFamily="/Проекта;component/#Jura Medium">
-                        <TextBlock TextTrimming="CharacterEllipsis">
-                        Кобзар
-                        </TextBlock>
-                    </Label>
-                    <Label Grid.Column="1" Grid.Row="0" Content="Шевченко Т. Г." Margin="0,15" Foreground="#7FFFFFFF" VerticalAlignment="Bottom" FontFamily="/Проекта;component/#Jura Medium"/>
-                    <Button Grid.Column="0" Grid.Row="1" Margin="5,5,5,0" Background="#FF6FA08A" BorderBrush="#FF6FA08A" Content="X" Foreground="White" Height="20" VerticalAlignment="Top" Click="Button_Click_2"/>
-                    <Label Grid.Column="1" Grid.Row="1" Content="75₴" Foreground="White" FontFamily="/Проекта;component/#Jura Medium" HorizontalAlignment="Center" FontSize="18"/>
+                <Grid x:Name="Basket2" Height="100" Width="200" Margin="0,-400,0,0">
+                    <Label x:Name="B21" Content="Тигролови" Foreground="White" FontFamily="/Проекта;component/#Jura Medium" FontSize="24" Margin="0,0,41,60" />
+                    <Label x:Name="B22" Content="Багряний І. В." Foreground="White" FontSize="16" FontFamily="/Проекта;component/#Jura Medium" Margin="3,31,41,37"/>
+                    <Label x:Name="B23" Content="50₴" Foreground="White" FontSize="36" FontFamily="/Проекта;component/#Jura Medium" Margin="0,46,41,0"/>
+                    <Button Margin="156,0,5,0" Background="#FF247E79" Content="X" FontFamily="/Проекта;component/#Jura Medium" FontSize="24" Foreground="White" BorderBrush="White" Click="Button_Click_8"/>
                 </Grid>
-                <Grid x:Name="Basket3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="64"/>
-                        <ColumnDefinition Width="24*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="75"/>
-                        <RowDefinition Height="30"/>
-                    </Grid.RowDefinitions>
-                    <Image Grid.Column="0" Grid.Row="0" Source="frontside.png"/>
-                    <Label Grid.Column="1" Grid.Row="0" Foreground="White" FontSize="18" FontFamily="/Проекта;component/#Jura Medium">
-                        <TextBlock TextTrimming="CharacterEllipsis">
-                        Місто
-                        </TextBlock>
-                    </Label>
-                    <Label Grid.Column="1" Grid.Row="0" Content="Підмогильний В. Т." Margin="0,15" Foreground="#7FFFFFFF" VerticalAlignment="Bottom" FontFamily="/Проекта;component/#Jura Medium"/>
-                    <Button Grid.Column="0" Grid.Row="1" Margin="5,5,5,5" Background="#FF6FA08A" BorderBrush="#FF6FA08A" Content="X" Foreground="White" Click="Button_Click_3"/>
-                    <Label Grid.Column="1" Grid.Row="1" Content="50₴" Foreground="White" FontFamily="/Проекта;component/#Jura Medium" HorizontalAlignment="Center" FontSize="18"/>
+                <Grid x:Name="Basket3" Height="100" Width="200" Margin="0,-400,0,0">
+                    <Label x:Name="B31" Content="Тигролови" Foreground="White" FontFamily="/Проекта;component/#Jura Medium" FontSize="24" Margin="0,0,41,60" />
+                    <Label x:Name="B32" Content="Багряний І. В." Foreground="White" FontSize="16" FontFamily="/Проекта;component/#Jura Medium" Margin="3,31,41,37"/>
+                    <Label x:Name="B33" Content="50₴" Foreground="White" FontSize="36" FontFamily="/Проекта;component/#Jura Medium" Margin="0,46,41,0"/>
+                    <Button Margin="156,0,5,0" Background="#FF247E79" Content="X" FontFamily="/Проекта;component/#Jura Medium" FontSize="24" Foreground="White" BorderBrush="White" Click="Button_Click_10"/>
                 </Grid>
-                <Grid x:Name="Basket4">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="64"/>
-                        <ColumnDefinition Width="24*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="75"/>
-                        <RowDefinition Height="30"/>
-                    </Grid.RowDefinitions>
-                    <Image Grid.Column="0" Grid.Row="0" Source="frontside.png"/>
-                    <Label Grid.Column="1" Grid.Row="0"  Foreground="White" FontSize="18" FontFamily="/Проекта;component/#Jura Medium">
-                        <TextBlock TextTrimming="CharacterEllipsis">
-                        Робінзон Крузо
-                        </TextBlock>
-                    </Label>
-                    <Label Grid.Column="1" Grid.Row="0" Content="деФо Д." Margin="0,15" Foreground="#7FFFFFFF" VerticalAlignment="Bottom" FontFamily="/Проекта;component/#Jura Medium"/>
-                    <Button Grid.Column="0" Grid.Row="1" Margin="5,5,5,5" Background="#FF6FA08A" BorderBrush="#FF6FA08A" Content="X" Foreground="White" Click="Button_Click_4"/>
-                    <Label Grid.Column="1" Grid.Row="1" Content="50₴" Foreground="White" FontFamily="/Проекта;component/#Jura Medium" HorizontalAlignment="Center" FontSize="18"/>
+                <Grid x:Name="Basket4" Height="100" Width="200" Margin="0,-400,0,0">
+                    <Label x:Name="B41" Content="Тигролови" Foreground="White" FontFamily="/Проекта;component/#Jura Medium" FontSize="24" Margin="0,0,41,60" />
+                    <Label x:Name="B42" Content="Багряний І. В." Foreground="White" FontSize="16" FontFamily="/Проекта;component/#Jura Medium" Margin="3,31,41,37"/>
+                    <Label x:Name="B43" Content="50₴" Foreground="White" FontSize="36" FontFamily="/Проекта;component/#Jura Medium" Margin="0,46,41,0"/>
+                    <Button Margin="156,0,5,0" Background="#FF247E79" Content="X" FontFamily="/Проекта;component/#Jura Medium" FontSize="24" Foreground="White" BorderBrush="White" Click="Button_Click_11"/>
                 </Grid>
-                <Grid x:Name="Basket5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="64"/>
-                        <ColumnDefinition Width="24*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="75"/>
-                        <RowDefinition Height="30"/>
-                    </Grid.RowDefinitions>
-                    <Image Grid.Column="0" Grid.Row="0" Source="frontside.png"/>
-                    <Label Grid.Column="1" Grid.Row="0" Foreground="White" FontSize="18" FontFamily="/Проекта;component/#Jura Medium">
-                        <TextBlock TextTrimming="CharacterEllipsis">
-                        Мауглі
-                        </TextBlock>
-                    </Label>
-                    <Label Grid.Column="1" Grid.Row="0" Content="Кіплінг Р." Margin="0,15" Foreground="#7FFFFFFF" VerticalAlignment="Bottom" FontFamily="/Проекта;component/#Jura Medium"/>
-                    <Button Grid.Column="0" Grid.Row="1" Margin="5,5,5,5" Background="#FF6FA08A" BorderBrush="#FF6FA08A" Content="X" Foreground="White" Click="Button_Click_5"/>
-                    <Label Grid.Column="1" Grid.Row="1" Content="50₴" Foreground="White" FontFamily="/Проекта;component/#Jura Medium" HorizontalAlignment="Center" FontSize="18"/>
+                <Grid x:Name="Basket5" Height="100" Width="200" Margin="0,-400,0,0">
+                    <Label x:Name="B51" Content="Тигролови" Foreground="White" FontFamily="/Проекта;component/#Jura Medium" FontSize="24" Margin="0,0,41,60" />
+                    <Label x:Name="B52" Content="Багряний І. В." Foreground="White" FontSize="16" FontFamily="/Проекта;component/#Jura Medium" Margin="3,31,41,37"/>
+                    <Label x:Name="B53" Content="50₴" Foreground="White" FontSize="36" FontFamily="/Проекта;component/#Jura Medium" Margin="0,46,41,0"/>
+                    <Button Margin="156,0,5,0" Background="#FF247E79" Content="X" FontFamily="/Проекта;component/#Jura Medium" FontSize="24" Foreground="White" BorderBrush="White" Click="Button_Click_12"/>
                 </Grid>
-                <Grid x:Name="Sum">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="70"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
-                    </Grid.RowDefinitions>
-                    <Label Grid.Column="0" Content="0" Foreground="White" FontSize="24" FontFamily="/Проекта;component/#Jura Medium" HorizontalAlignment="Right" Margin="0,0,16,0" VerticalAlignment="Center"/>
-                    <Label Content="Замовити" Background="#FF4F8370" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="/Проекта;component/#Jura Medium" Grid.ColumnSpan="2" Margin="114,0,16,0" Foreground="White" />
+                <Grid x:Name="Sum" Height="102">
+                    <Label Grid.Column="0" Content="Σ=" Foreground="White" FontSize="48" FontFamily="/Проекта;component/#Jura Medium" HorizontalAlignment="Right" Margin="0,-8,134,51" VerticalAlignment="Center" Height="59" Width="65"/>
+                    <Label x:Name="END" Content="Замовити" Background="#FF4F8370" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="/Проекта;component/#Jura Medium" Margin="39,61,44,3" Foreground="White" Height="38" Width="117" FontSize="22" MouseLeftButtonDown="END_MouseLeftButtonDown" />
+                    <Label x:Name="SUM" Grid.Column="0" Content="0" Foreground="White" FontSize="36" FontFamily="/Проекта;component/#Jura Medium" HorizontalAlignment="Right" Margin="0,-1,11,54" VerticalAlignment="Center" Height="49" Width="119"/>
                 </Grid>
             </StackPanel>
             <Image Grid.Column="1" Source="EXIT.png" Width="64" Margin="18,-23,558,660" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
