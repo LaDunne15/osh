@@ -19,13 +19,14 @@ namespace Проекта
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    
+
     public partial class MainWindow : Window
     {
-        
+
         string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=Proekta;Integrated Security=True";
         ListBook list = new ListBook();
         List<Book> BBook = new List<Book> { };
+        List<Account> acc = new List<Account> {};
         int onlineGenre = 1;
         int sort = 0;
         
@@ -198,7 +199,49 @@ namespace Проекта
         private void LogIn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             
-            if(LOGlever == 2)
+            if(LOGlever == 1)
+            {
+                bool IsFind = false;
+                list.Lista.Clear();
+                string c = "SELECT * FROM LOGIN";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(c, connection);
+                    SqlDataReader DD = command.ExecuteReader();
+
+                    if (DD.HasRows)
+                    {
+                        while (DD.Read())
+                        {
+                            object x1 = DD.GetValue(0);
+                            object x2 = DD.GetValue(1);
+                            object x3 = DD.GetValue(2);
+                            acc.Add(new Account(Convert.ToString(x1), Convert.ToString(x2), Convert.ToString(x3)));                        }
+                    }
+                }
+                foreach(Account i in acc)
+                {
+                    if(i.Login.Replace(" ","")==LG.Text&&i.password.Replace(" ","")==PW.Text)
+                    {
+                        IsFind = true;
+                    }
+                }
+                if (IsFind)
+                {
+                    LG.Text = "";
+                    PW.Text = "";
+                    PW_2.Visibility = Visibility.Hidden;
+                    NICK.Visibility = Visibility.Hidden;
+                    NICK1.Visibility = Visibility.Hidden;
+                    PW_1.Visibility = Visibility.Hidden;
+                    LOG.Visibility = Visibility.Hidden;
+                    MAIN.Visibility = Visibility.Visible;
+                }
+                else
+                    MessageBox.Show("Акаунт не знайдено!");
+            }
+            else
             {
                 if (PW.Text == PW_2.Text)
                 {
@@ -206,6 +249,12 @@ namespace Проекта
             LOG.Visibility = Visibility.Hidden;
             MAIN.Visibility = Visibility.Visible;
             NICK.Visibility = Visibility.Hidden;
+            PW_1.Visibility = Visibility.Hidden;
+            NICK1.Visibility = Visibility.Hidden;
+            NICK.Text = "";
+            LG.Text = "";
+            PW.Text = "";
+            PW_2.Text = "";
             RETURN.Visibility = Visibility.Hidden;
             NEW.Visibility = Visibility.Visible;
             NEW01.Visibility = Visibility.Visible;
@@ -288,6 +337,58 @@ namespace Проекта
         private void LG_TextChanged(object sender, TextChangedEventArgs e)
         {
            
+        }
+        public string GenreStr(int a)
+        {
+            switch(a)
+                {
+                case 1: return "Бізнес і інвестиції";
+                case 2: return "Біографії і мемуари";
+                case 3:  return "Детективи і триллери";
+                case 4: return "Для дітей";
+                case 5: return  "Здоров'я і спорт";
+                case 6: return "Історія";
+                case 7: return  "Комп'ютери і технології";
+                case 8: return "Кулінарія і домашнє господарство";
+                case 9: return "Романи";
+                case 10:return "Фантастика і фентезі";
+                case 11: return "Художня література";
+                default: return "Невідомий жанр";
+            }
+        }
+        public void RReleaze(int ir)
+        {
+            string b;
+            if (sort == 1)
+                b = "SELECT * FROM Books order by Price";
+            else
+                b = "SELECT * FROM Books order by Name";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(b, connection);
+                SqlDataReader CC = command.ExecuteReader();
+
+                if (CC.HasRows)
+                {
+                    while (CC.Read())
+                    {
+                        object x1 = CC.GetValue(0);
+                        object x2 = CC.GetValue(1);
+                        object x3 = CC.GetValue(2);
+                        object x4 = CC.GetValue(3);
+                        object x5 = CC.GetValue(4);
+                        list.Lista.Add(new Book(Convert.ToString(x1), Convert.ToString(x2), Convert.ToDouble(x3), Convert.ToString(x4), Convert.ToInt32(x5)));
+                    }
+                }
+            }
+            ListBook G1 = new ListBook(list.OneTypeBooks(onlineGenre));
+            int i = Convert.ToInt32(Text2.Content) - 1;
+            I1.Content = G1.Lista[i * 5 + ir].Name;
+            I2.Content = G1.Lista[i * 5 + ir].Author;
+            I3.Content = G1.Lista[i * 5 + ir].price + "₴";
+            I4.Content = G1.Lista[i * 5 + ir].About;
+            I5.Content = GenreStr(G1.Lista[i * 5 + ir].Genre);
         }
         public void Releaze()
         {
@@ -945,6 +1046,45 @@ namespace Проекта
         {
             sort = 2;
             Releaze();
+        }
+
+        private void Book22_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BookINFO.Visibility = Visibility.Visible;
+            RReleaze(1);
+
+        }
+
+        private void Exit1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BookINFO.Visibility = Visibility.Hidden;
+        }
+
+        private void Book11_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BookINFO.Visibility = Visibility.Visible;
+            RReleaze(0);
+        }
+
+        private void Book33_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BookINFO.Visibility = Visibility.Visible;
+            RReleaze(2);
+
+        }
+
+        private void Book44_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BookINFO.Visibility = Visibility.Visible;
+            RReleaze(3);
+
+        }
+
+        private void Book55_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            BookINFO.Visibility = Visibility.Visible;
+            RReleaze(4);
+
         }
 
         private void Genre2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

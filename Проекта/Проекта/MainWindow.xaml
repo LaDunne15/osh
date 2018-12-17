@@ -52,19 +52,18 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Grid Background="#FF2C2121" x:Name="LOG" Visibility="Hidden">
-            <Rectangle Fill="#B2BF292e" HorizontalAlignment="Left" Height="717" Margin="14,0,0,0" VerticalAlignment="Top" Width="58"/>
-            <Rectangle Fill="#B2BF9629" HorizontalAlignment="Left" Height="717" Margin="98,0,0,0" VerticalAlignment="Top" Width="58"/>
-            <Rectangle Fill="#B229BF88" HorizontalAlignment="Left" Height="717" Margin="182,0,0,0" VerticalAlignment="Top" Width="58"/>
+        <Grid Background="#FF191616" x:Name="LOG" Visibility="Hidden">
+            <Rectangle Fill="#B2FFA6A9" HorizontalAlignment="Left" Height="717" Margin="14,0,0,0" VerticalAlignment="Top" Width="58"/>
+            <Rectangle Fill="#B27ADCB8" HorizontalAlignment="Left" Height="717" Margin="182,0,0,0" VerticalAlignment="Top" Width="58"/>
             <TextBox x:Name="LG" HorizontalAlignment="Left" Height="50" Margin="479,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" Background="#FFEED685" FontSize="36" FontFamily="/Проекта;component/#Jura Medium" MouseLeftButtonDown="LG_MouseLeftButtonDown" PreviewTextInput="LG_PreviewTextInput" TextChanged="LG_TextChanged"/>
             <TextBox x:Name="PW" HorizontalAlignment="Left" Height="50" Margin="544,327,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="304" Background="#FFEED685" FontSize="36" FontFamily="/Проекта;component/#Jura Medium" MouseLeftButtonDown="PW_MouseLeftButtonDown"/>
             <Rectangle x:Name="LOGIN01" Fill="LimeGreen" HorizontalAlignment="Left" Height="100" Margin="640,434,0,0" VerticalAlignment="Top" Width="100"/>
             <Rectangle x:Name="NEW01" Fill="#B2D1D135" HorizontalAlignment="Left" Height="100" Margin="772,434,0,0" VerticalAlignment="Top" Width="100"/>
-            <TextBlock HorizontalAlignment="Left" Margin="347,34,0,0" TextWrapping="Wrap" Text="Times New Roman" VerticalAlignment="Top" Height="108" Width="585" Foreground="White" FontSize="72" FontFamily="Times New Roman"/>
+            <TextBlock HorizontalAlignment="Left" Margin="328,40,0,0" TextWrapping="Wrap" Text="Bookshelf" VerticalAlignment="Top" Height="108" Width="384" Foreground="#FF18FFFF" FontFamily="/Проекта;component/#Jura Medium" FontSize="72"/>
             <Label x:Name="LOGIN02" Content="Вхід" HorizontalAlignment="Left" Margin="657,455,0,0" VerticalAlignment="Top" Height="58" Width="77" Foreground="White" FontSize="30" FontFamily="/Проекта;component/#Jura Medium"/>
-            <Label x:Name="NEW02" Content="Новий" HorizontalAlignment="Left" Margin="771,454,0,0" VerticalAlignment="Top" Height="58" Width="105" Foreground="White" FontSize="30" FontFamily="/Проекта;component/#Jura Medium"/>
-            <Rectangle x:Name="LOGIN" Fill="#0032CD32" HorizontalAlignment="Left" Height="100" Margin="640,434,0,0" VerticalAlignment="Top" Width="100" MouseLeftButtonDown="LogIn_MouseLeftButtonDown"/>
-            <Rectangle x:Name="NEW" Fill="#0032CD32" HorizontalAlignment="Left" Height="100" Margin="772,434,0,0" VerticalAlignment="Top" Width="100" MouseLeftButtonDown="NEW_MouseLeftButtonDown"/>
+            <Label x:Name="NEW02" Content="Новий" HorizontalAlignment="Left" Margin="769,454,0,0" VerticalAlignment="Top" Height="58" Width="105" Foreground="White" FontSize="30" FontFamily="/Проекта;component/#Jura Medium"/>
+            <Rectangle x:Name="LOGIN" Fill="#0032CD32" HorizontalAlignment="Left" Height="100" Margin="640,434,0,0" VerticalAlignment="Top" Width="100" MouseLeftButtonDown="LogIn_MouseLeftButtonDown" Stroke="Black"/>
+            <Rectangle x:Name="NEW" Fill="#0032CD32" HorizontalAlignment="Left" Height="100" Margin="772,434,0,0" VerticalAlignment="Top" Width="100" MouseLeftButtonDown="NEW_MouseLeftButtonDown" Stroke="Black"/>
             <TextBox x:Name="NICK" HorizontalAlignment="Left" Height="50" Margin="393,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294" Background="#FFEED685" FontSize="36" FontFamily="/Проекта;component/#Jura Medium" Visibility="Hidden" MouseLeftButtonDown="NICK_MouseLeftButtonDown" MouseLeftButtonUp="NICK_MouseLeftButtonUp"/>
             <Image x:Name="RETURN" Source="RETURN.png" Margin="294,361,586,170" MouseLeftButtonDown="RETURN_MouseLeftButtonDown" Height="200" Width="150" Visibility="Hidden"/>
             <TextBox x:Name="PW_2" HorizontalAlignment="Left" Height="36" Margin="635,390,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="236" Background="#99EED685" FontSize="24" FontFamily="/Проекта;component/#Jura Medium" Visibility="Hidden" MouseLeftButtonDown="PW_2_MouseLeftButtonDown"/>
@@ -72,10 +71,18 @@
             <Label Content="ПАРОЛЬ" HorizontalAlignment="Left" Margin="398,324,0,0" VerticalAlignment="Top" Height="56" Width="142" Background="{x:Null}" FontSize="36" FontFamily="/Проекта;component/#Jura Medium" Foreground="White"/>
             <Label x:Name="NICK1" Content="НІК" HorizontalAlignment="Left" Margin="326,198,0,0" VerticalAlignment="Top" Height="56" Width="70" Background="{x:Null}" FontSize="36" FontFamily="/Проекта;component/#Jura Medium" Foreground="White" Visibility="Hidden"/>
             <Label x:Name="PW_1" Content="ЩЕ РАЗ ПАРОЛЬ" HorizontalAlignment="Left" Margin="447,388,0,0" VerticalAlignment="Top" Height="42" Width="194" Background="#00000000" FontSize="24" FontFamily="/Проекта;component/#Jura Medium" Foreground="#99FFFFFF" Visibility="Hidden"/>
+            <TextBlock HorizontalAlignment="Left" Margin="332,42,0,0" TextWrapping="Wrap" Text="Bookshelf" VerticalAlignment="Top" Height="108" Width="384" Foreground="White" FontFamily="/Проекта;component/#Jura Medium" FontSize="72"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="9" Margin="-15,118,0,0" VerticalAlignment="Top" Width="1048"/>
+            <Rectangle Fill="#B2EECC73" HorizontalAlignment="Left" Height="717" Margin="98,0,0,0" VerticalAlignment="Top" Width="58"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="123" Margin="731,0,0,0" VerticalAlignment="Top" Width="54"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="123" Margin="831,0,0,0" VerticalAlignment="Top" Width="54"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="123" Margin="929,0,0,0" VerticalAlignment="Top" Width="54"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="133" Margin="855,588,0,-3" VerticalAlignment="Top" Width="32"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="19" Margin="422,588,0,0" VerticalAlignment="Top" Width="461"/>
 
 
         </Grid>
-        <Grid Background="White" x:Name="MAIN" Visibility="Hidden">
+        <Grid Background="White" x:Name="MAIN" Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="640" />
@@ -200,42 +207,38 @@
                     <Label x:Name="Book_One1" Content="Тигролови" Style="{StaticResource BNAME}"/>
                     <Label x:Name="Book_One2" Content="Багряний І. П." Style="{StaticResource BAUTHOR}" />
                     <Label x:Name="Book_One3" Content="50₴" Style="{StaticResource PRICE}"/>
-                    <Rectangle x:Name="Book11" Style="{StaticResource BNameBUT}" MouseLeftButtonDown="Book11_MouseLeftButtonDown"/>
+                    <Rectangle x:Name="Book11" Style="{StaticResource BNameBUT}" MouseLeftButtonDown="Book11_MouseLeftButtonDown" MouseRightButtonDown="Book11_MouseRightButtonDown"/>
                 </Grid>
                 <Grid x:Name="Book2" Margin="10,15" Height="85" Visibility="Hidden">
                     <Rectangle Style="{StaticResource BName}"/>
                     <Label x:Name="Book_Two1" Content="Мій ізмарагд" Style="{StaticResource BNAME}"/>
                     <Label x:Name="Book_Two2" Content="Франко І. Я." Style="{StaticResource BAUTHOR}" />
                     <Label x:Name="Book_Two3" Content="65₴" Style="{StaticResource PRICE}"/>
-                    <Rectangle x:Name="Book22" Style="{StaticResource BNameBUT}" MouseLeftButtonDown="Book22_MouseLeftButtonDown"/>
+                    <Rectangle x:Name="Book22" Style="{StaticResource BNameBUT}" MouseLeftButtonDown="Book22_MouseLeftButtonDown" MouseRightButtonDown="Book22_MouseRightButtonDown"/>
                 </Grid>
                 <Grid x:Name="Book3" Margin="10,0" Height="85" Visibility="Hidden">
                     <Rectangle Style="{StaticResource BName}"/>
                     <Label x:Name="Book_Three1" Content="Денс,денс,денс..." Style="{StaticResource BNAME}"/>
                     <Label x:Name="Book_Three2" Content="Харукі М." Style="{StaticResource BAUTHOR}" />
                     <Label x:Name="Book_Three3" Content="45₴" Style="{StaticResource PRICE}"/>
-                    <Rectangle x:Name="Book33" Style="{StaticResource BNameBUT}" MouseLeftButtonDown="Book33_MouseLeftButtonDown"/>
+                    <Rectangle x:Name="Book33" Style="{StaticResource BNameBUT}" MouseLeftButtonDown="Book33_MouseLeftButtonDown" MouseRightButtonDown="Book33_MouseRightButtonDown"/>
                 </Grid>
                 <Grid x:Name="Book4" Margin="10,15" Height="85" Visibility="Hidden">
                     <Rectangle Style="{StaticResource BName}"/>
                     <Label x:Name="Book_Four1" Content="Лісова пісня" Style="{StaticResource BNAME}"/>
                     <Label x:Name="Book_Four2" Content="Леся Українка" Style="{StaticResource BAUTHOR}" />
                     <Label x:Name="Book_Four3" Content="65₴" Style="{StaticResource PRICE}"/>
-                    <Rectangle x:Name="Book44" Style="{StaticResource BNameBUT}" MouseLeftButtonDown="Book44_MouseLeftButtonDown"/>
+                    <Rectangle x:Name="Book44" Style="{StaticResource BNameBUT}" MouseLeftButtonDown="Book44_MouseLeftButtonDown" MouseRightButtonDown="Book44_MouseRightButtonDown"/>
                 </Grid>
                 <Grid x:Name="Book5" Margin="10,0" Height="85" Visibility="Hidden">
                     <Rectangle Style="{StaticResource BName}"/>
                     <Label x:Name="Book_Five1" Content="Перевтілення" Style="{StaticResource BNAME}"/>
                     <Label x:Name="Book_Five2" Content="Кафка Ф." Style="{StaticResource BAUTHOR}" />
                     <Label x:Name="Book_Five3" Content="65₴" Style="{StaticResource PRICE}"/>
-                    <Rectangle x:Name="Book55" Style="{StaticResource BNameBUT}" MouseLeftButtonDown="Book55_MouseLeftButtonDown"/>
+                    <Rectangle x:Name="Book55" Style="{StaticResource BNameBUT}" MouseLeftButtonDown="Book55_MouseLeftButtonDown" MouseRightButtonDown="Book55_MouseRightButtonDown"/>
                 </Grid>
             </StackPanel>
             <Label x:Name="Text2" Content="01" Grid.Column="1" HorizontalAlignment="Left" Margin="289,618,0,0" VerticalAlignment="Top" Height="66" Width="88" FontSize="36" Cursor="Arrow" BorderBrush="Red" Foreground="White" FontStretch="Condensed" FontFamily="/Проекта;component/#Orbitron Medium" FontStyle="Italic"/>
-            <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="455,78,0,0" VerticalAlignment="Top" Width="172" Height="36" Foreground="Black" Background="#FFC57373">
-                <ComboBoxItem x:Name="sort1" Content="По ціні" IsSelected="True" MouseLeftButtonDown="sort1_MouseLeftButtonDown"></ComboBoxItem>
-                <ComboBoxItem x:Name="sort2" Content="По алфавіту" MouseLeftButtonDown="sort2_MouseLeftButtonDown"></ComboBoxItem>
-            </ComboBox>
             <StackPanel Grid.Column="2">
                 <Label Content="Кошик" Foreground="White" FontSize="36" FontFamily="/Проекта;component/#Jura Medium" Grid.Column="2" />
                 <Grid x:Name="Basket1" Height="100" Width="200" Margin="0,-400,0,0">
@@ -274,8 +277,8 @@
                     <Label x:Name="SUM" Grid.Column="0" Content="0" Foreground="White" FontSize="36" FontFamily="/Проекта;component/#Jura Medium" HorizontalAlignment="Right" Margin="0,-1,11,54" VerticalAlignment="Center" Height="49" Width="119"/>
                 </Grid>
             </StackPanel>
-            <Image Grid.Column="1" Source="EXIT.png" Width="64" Margin="18,-23,558,660" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
-            <Grid Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="274,430,0,0" VerticalAlignment="Top" Width="100"/>
+            <Image Grid.Column="1" Source="EXIT.png" Width="64" Margin="18,-23,558,660" MouseLeftButtonDown="Image_MouseLeftButtonDown" OpacityMask="White"/>
+            <Label Content="Label" Grid.Column="1" HorizontalAlignment="Left" Margin="102,8,0,0" VerticalAlignment="Top" Height="66" Width="526" Foreground="White" FontFamily="/Проекта;component/#Jura Medium" FontSize="36"/>
 
         </Grid>
         <Grid x:Name="AddBook" Visibility="Hidden" Background="#CC000000">
@@ -335,5 +338,16 @@
             </WrapPanel>
 
         </Grid>
+        <Grid x:Name="BookINFO" Visibility="Hidden" Background="#CC323232">
+            <Rectangle Fill="Black" Margin="60,40,60,70"></Rectangle>
+            <Image x:Name="Exit1" Source="Close.png" Height="50" Margin="416,56,-416,612" Width="50" MouseLeftButtonDown="Exit1_MouseLeftButtonDown"></Image>
+            <Label x:Name="I1" Content="Тигролови" Foreground="White" FontFamily="/Проекта;component/#Jura Medium" FontSize="72" Margin="88,114,134,498" />
+            <Label x:Name="I2" Content="Багряний І. В." Foreground="White" FontSize="48" FontFamily="/Проекта;component/#Jura Medium" Margin="102,228,124,408"/>
+            <Label x:Name="I3" Content="50₴" Foreground="White" FontSize="72" FontFamily="/Проекта;component/#Jura Medium" Margin="740,520,82,94"/>
+            <Label x:Name="I5" Content="50₴" Foreground="#FF939393" FontSize="48" FontFamily="/Проекта;component/#Jura Medium" Margin="80,52,222,592"/>
+            <Label x:Name="I4" Content="аааа" Foreground="#FF767676" FontSize="48" FontFamily="/Проекта;component/#Jura Medium" Margin="92,306,89,181"/>
+
+        </Grid>
+
     </Grid>
 </Window>

@@ -8,9 +8,9 @@ namespace Проекта
 {
     class Account
     {
-        string Nick;
-        string Login;
-        string password;
+        public string Nick;
+        public string Login;
+        public string password;
         public Account(string Nic,string Log,string pass)
         {
             Nick = Nic;
