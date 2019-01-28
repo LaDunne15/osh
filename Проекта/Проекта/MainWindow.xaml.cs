@@ -19,17 +19,39 @@ namespace Проекта
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-
     public partial class MainWindow : Window
     {
-
+        public int ClearAll(string Al)
+        {
+            string A="";
+            for (int ii = 5; ii < Al.Length; ii++)
+                A += Al[ii];
+            return Convert.ToInt32(A)/10;
+        }
         string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=Proekta;Integrated Security=True";
         ListBook list = new ListBook();
         List<Book> BBook = new List<Book> { };
-        List<Account> acc = new List<Account> {};
+        ListAcc listAcc = new ListAcc();
         string Name;
         int onlineGenre = 1;
         int sort = 0;
+
+        private void Uppp(object sender, MouseEventArgs e)
+        {
+            ((Rectangle)sender).Height = 50;
+            ((Rectangle)sender).Width = 200;
+        }
+        private void Dooo(object sender, MouseEventArgs e)
+        {
+            ((Rectangle)sender).Height = 40;
+            ((Rectangle)sender).Width = 180;
+        }
+        private void GGGO(object sender, MouseEventArgs e)
+        {
+            onlineGenre = ClearAll(((Rectangle)sender).Name);
+            Text2.Content = "01";
+            Releaze();
+        }
         
         public void Write(int write)
         {
@@ -199,37 +221,10 @@ namespace Проекта
 
         private void LogIn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            
             if(LOGlever == 1)
             {
-                bool IsFind = false;
                 list.Lista.Clear();
-                string c = "SELECT * FROM LOGIN";
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand(c, connection);
-                    SqlDataReader DD = command.ExecuteReader();
-
-                    if (DD.HasRows)
-                    {
-                        while (DD.Read())
-                        {
-                            object x1 = DD.GetValue(0);
-                            object x2 = DD.GetValue(1);
-                            object x3 = DD.GetValue(2);
-                            acc.Add(new Account(Convert.ToString(x1), Convert.ToString(x2), Convert.ToString(x3)));                        }
-                    }
-                }
-                foreach(Account i in acc)
-                {
-                    if(i.Login.Replace(" ","")==LG.Text&&i.password.Replace(" ","")==PW.Text)
-                    {
-                        IsFind = true;
-                        Name=i.Nick.Replace(" ","");
-                    }
-                }
-                if (IsFind)
+                if (listAcc.SearchAcc(LG.Text,PW.Text))
                 {
                     LG.Text = "";
                     PW.Text = "";
@@ -580,66 +575,6 @@ namespace Проекта
             SUM.Content = sum + "₴";
         }
 
-        private void Genre1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            onlineGenre = 1;
-            Text2.Content = "01";
-            Releaze();
-        }
-
-        private void Genre1_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Genre11.Height = 50;
-            Genre11.Width = 200;
-            Genre12.Height = 50;
-            Genre12.Width = 200;
-        }
-        private void Genre1_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Genre11.Height = a;
-            Genre11.Width = b;
-            Genre12.Height = a;
-            Genre12.Width = b;
-        }
-        private void Genre2_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Genre21.Height = 50;
-            Genre21.Width = 200;
-            Genre22.Height = 50;
-            Genre22.Width = 200;
-        }
-
-        private void Genre2_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Genre21.Height = a;
-            Genre21.Width = b;
-            Genre22.Height = a;
-            Genre22.Width = b;
-        }
-
-        private void Genre3_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Genre31.Height = 50;
-            Genre31.Width = 200;
-            Genre32.Height = 50;
-            Genre32.Width = 200;
-        }
-
-        private void Genre3_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Genre31.Height = a;
-            Genre31.Width = b;
-            Genre32.Height = a;
-            Genre32.Width = b;
-        }
-
-        private void Genre3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            onlineGenre = 3;
-            Text2.Content = "01";
-            Releaze();
-        }
-
         private void Book_CreateBook_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             try { }
@@ -706,129 +641,6 @@ namespace Проекта
         {
             ((Rectangle)sender).Fill= new SolidColorBrush(Colors.LightBlue);
         }
-
-        private void Genre4_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Genre41.Height = 50;
-            Genre41.Width = 200;
-            Genre42.Height = 50;
-            Genre42.Width = 200;
-        }
-
-        private void Genre4_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Genre41.Height = a;
-            Genre41.Width = b;
-            Genre42.Height = a;
-            Genre42.Width = b;
-        }
-
-        private void Genre5_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Genre51.Height = 50;
-            Genre51.Width = 200;
-            Genre52.Height = 50;
-            Genre52.Width = 200;
-        }
-
-        private void Genre5_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Genre51.Height = a;
-            Genre51.Width = b;
-            Genre52.Height = a;
-            Genre52.Width = b;
-        }
-        private void Genre6_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Genre61.Height = 50;
-            Genre61.Width = 200;
-            Genre62.Height = 50;
-            Genre62.Width = 200;
-        }
-
-        private void Genre6_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Genre61.Height = a;
-            Genre61.Width = b;
-            Genre62.Height = a;
-            Genre62.Width = b;
-        }
-        private void Genre7_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Genre71.Height = 50;
-            Genre71.Width = 200;
-            Genre72.Height = 50;
-            Genre72.Width = 200;
-        }
-
-        private void Genre7_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Genre71.Height = a;
-            Genre71.Width = b;
-            Genre72.Height = a;
-            Genre72.Width = b;
-        }
-        private void Genre8_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Genre81.Height = 50;
-            Genre81.Width = 200;
-            Genre82.Height = 50;
-            Genre82.Width = 200;
-        }
-
-        private void Genre8_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Genre81.Height = a;
-            Genre81.Width = b;
-            Genre82.Height = a;
-            Genre82.Width = b;
-        }
-        private void Genre9_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Genre91.Height = 50;
-            Genre91.Width = 200;
-            Genre92.Height = 50;
-            Genre92.Width = 200;
-        }
-
-        private void Genre9_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Genre91.Height = a;
-            Genre91.Width = b;
-            Genre92.Height = a;
-            Genre92.Width = b;
-        }
-        private void Genre10_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Genre101.Height = 50;
-            Genre101.Width = 200;
-            Genre102.Height = 50;
-            Genre102.Width = 200;
-        }
-
-        private void Genre10_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Genre101.Height = a;
-            Genre101.Width = b;
-            Genre102.Height = a;
-            Genre102.Width = b;
-        }
-        private void Genre1111_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Genre111.Height = 50;
-            Genre111.Width = 200;
-            Genre112.Height = 50;
-            Genre112.Width = 200;
-        }
-
-        private void Genre1111_MouseLeave(object sender, MouseEventArgs e)
-        {
-            Genre111.Height = a;
-            Genre111.Width = b;
-            Genre112.Height = a;
-            Genre112.Width = b;
-        }
-
         private void DeleteBook_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             
@@ -851,62 +663,6 @@ namespace Проекта
             }
             MessageBox.Show(deleteBook.Text+" - видалено!");
             del.Visibility = Visibility.Hidden;
-        }
-
-        private void Genre4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            onlineGenre = 4;
-            Text2.Content = "01";
-            Releaze();
-        }
-
-        private void Genre5_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            onlineGenre = 5;
-            Text2.Content = "01";
-            Releaze();
-        }
-
-        private void Genre6_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            onlineGenre = 6;
-            Text2.Content = "01";
-            Releaze();
-        }
-
-        private void Genre7_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            onlineGenre = 7;
-            Text2.Content = "01";
-            Releaze();
-        }
-
-        private void Genre8_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            onlineGenre = 8;
-            Text2.Content = "01";
-            Releaze();
-        }
-
-        private void Genre9_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            onlineGenre = 9;
-            Text2.Content = "01";
-            Releaze();
-        }
-
-        private void Genre10_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            onlineGenre = 10;
-            Text2.Content = "01";
-            Releaze();
-        }
-
-        private void Genre11_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            onlineGenre = 11;
-            Text2.Content = "01";
-            Releaze();
         }
 
         private void Button_Click_8(object sender, RoutedEventArgs e)
@@ -1118,8 +874,6 @@ namespace Проекта
         private void Button_Click_13(object sender, RoutedEventArgs e)
         {
             string b = "UPDATE LOGIN SET Login='" + NEWLOG.Text+"' WHERE Nickname='"+Name+"'";
-            
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -1127,6 +881,7 @@ namespace Проекта
                 command.ExecuteNonQuery();
             }
             NEWLOG.Text = "";
+            listAcc.CHLogin(Name,NEWLOG.Text);
         }
 
         private void Exit2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -1146,6 +901,7 @@ namespace Проекта
                 command.ExecuteNonQuery();
             }
             NEWPASS.Text = "";
+            listAcc.CHPass(Name, NEWPASS.Text);
         }
 
         private void Button_Click_655(object sender, RoutedEventArgs e)
@@ -1170,14 +926,6 @@ namespace Проекта
             NEWPASS.Text = "";
             delacc.Visibility = Visibility.Hidden;
         }
-
-        private void Genre2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            onlineGenre = 2;
-            Text2.Content = "01";
-            Releaze();
-        }
-
     }
 }
 

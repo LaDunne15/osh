@@ -8,10 +8,10 @@ namespace Проекта
 {
     class Book
     {
-        public string Name,Author;
-        public double price;
-        public string About;
-        public int Genre;
+        public string Name,Author; //Назва книги і її автор
+        public double price;// ціна книги
+        public string About;// коротко про книгу
+        public int Genre;// ID жанру
         public Book (string A,string B,double C,string D,int E)
         {
             Name = A;

@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="Account.cs" />
     <Compile Include="Book.cs" />
+    <Compile Include="ListAcc.cs" />
     <Compile Include="ListBook.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
