@@ -28,6 +28,10 @@ namespace Проекта
                 A += Al[ii];
             return Convert.ToInt32(A)/10;
         }
+        public int FourthCh(string Al)
+        {
+            return Convert.ToInt32(Al[4]+"");
+        }
         string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=Proekta;Integrated Security=True";
         ListBook list = new ListBook();
         List<Book> BBook = new List<Book> { };
@@ -41,6 +45,31 @@ namespace Проекта
             ((Rectangle)sender).Height = 50;
             ((Rectangle)sender).Width = 200;
         }
+
+        private void RC(object sender, MouseEventArgs e)
+        {
+            BookINFO.Visibility = Visibility.Visible;
+            RReleaze(FourthCh(((Rectangle)sender).Name));
+        }
+        private void LC(object sender, MouseEventArgs e)
+        {
+            ListBook G1 = new ListBook(list.OneTypeBooks(onlineGenre));
+            if (BBook.Count < 5)
+            {
+                BBook.Add(G1.Lista[(FromFourth(((Rectangle)sender).Name))]);
+                    }
+            else
+                MessageBox.Show("Корзина повна");
+            Repaing(BBook.Count);
+            Releaze1();
+        }
+        private int  FromFourth(string a)
+        {
+            string A = "";
+            for (int i = 4; i < a.Length; i++)
+                A += a[i];
+            return Convert.ToInt32(A);
+        }
         private void Dooo(object sender, MouseEventArgs e)
         {
             ((Rectangle)sender).Height = 40;
@@ -49,128 +78,16 @@ namespace Проекта
         private void GGGO(object sender, MouseEventArgs e)
         {
             onlineGenre = ClearAll(((Rectangle)sender).Name);
-            Text2.Content = "01";
             Releaze();
-        }
-        
-        public void Write(int write)
-        {
-            if(write == 0)
-            {
-                Book1.Visibility = Visibility.Hidden;
-                Book2.Visibility = Visibility.Hidden;
-                Book3.Visibility = Visibility.Hidden;
-                Book4.Visibility = Visibility.Hidden;
-                Book5.Visibility = Visibility.Hidden;
-            }
-            if (write == 1)
-            {
-                Book1.Visibility = Visibility.Visible;
-                Book2.Visibility = Visibility.Hidden;
-                Book3.Visibility = Visibility.Hidden;
-                Book4.Visibility = Visibility.Hidden;
-                Book5.Visibility = Visibility.Hidden;
-            }
-            if (write == 2)
-            {
-                Book1.Visibility = Visibility.Visible;
-                Book2.Visibility = Visibility.Visible;
-                Book3.Visibility = Visibility.Hidden;
-                Book4.Visibility = Visibility.Hidden;
-                Book5.Visibility = Visibility.Hidden;
-            }
-            if (write == 3)
-            {
-                Book1.Visibility = Visibility.Visible;
-                Book2.Visibility = Visibility.Visible;
-                Book3.Visibility = Visibility.Visible;
-                Book4.Visibility = Visibility.Hidden;
-                Book5.Visibility = Visibility.Hidden;
-            }
-            if (write == 4)
-            {
-                Book1.Visibility = Visibility.Visible;
-                Book2.Visibility = Visibility.Visible;
-                Book3.Visibility = Visibility.Visible;
-                Book4.Visibility = Visibility.Visible;
-                Book5.Visibility = Visibility.Hidden;
-            }
-            if (write == 5)
-            {
-                Book1.Visibility = Visibility.Visible;
-                Book2.Visibility = Visibility.Visible;
-                Book3.Visibility = Visibility.Visible;
-                Book4.Visibility = Visibility.Visible;
-                Book5.Visibility = Visibility.Visible;
-            }
         }
         public MainWindow()
         {
             InitializeComponent();
-            LEFT.Opacity = 0.5;
             gr.Content = "Видалити\nкнигу\nіз бази";
             Repaing(0);
         }
         int a =40, b =180;
         int LOGlever = 1;
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-            
-        }
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            int a = Convert.ToInt32(Text2.Content);
-            a++;
-            if(a>9)
-            {
-                Text2.Content =Convert.ToString(a);
-            }else
-                Text2.Content = "0"+ Convert.ToString(a);
-
-        }
-
-        private void RIGHT_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            int a = Convert.ToInt32(Text2.Content);
-            if(list.cou(onlineGenre)/5+1==a)
-            { RIGHT.Opacity = 0.9; }
-               else
-            a++;
-            if (a > 9)
-            {
-                Text2.Content = Convert.ToString(a);
-            }
-            else
-                Text2.Content = "0" + Convert.ToString(a);
-            LEFT.Opacity = 0.9;
-            Releaze();
-        }
-
-        private void LEFT_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            int a = Convert.ToInt32(Text2.Content);
-            if (list.cou(onlineGenre)/5+1!= a)
-                RIGHT.Opacity = 0.9;
-            if (a > 1)
-                a--;
-            else { a = 1; }
-            if (a == 1)
-            { LEFT.Opacity = 0.5;}
-            if (a > 9)
-            {
-                Text2.Content = Convert.ToString(a);
-            }
-            else
-                Text2.Content = "0" + Convert.ToString(a);
-            Releaze();
-        }
-
-
         private void Rectangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
@@ -391,7 +308,7 @@ namespace Проекта
                 }
             }
             ListBook G1 = new ListBook(list.OneTypeBooks(onlineGenre));
-            int i = Convert.ToInt32(Text2.Content) - 1;
+            int i =  1;
             I1.Content = G1.Lista[i * 5 + ir].Name;
             I2.Content = G1.Lista[i * 5 + ir].Author;
             I3.Content = G1.Lista[i * 5 + ir].price + "₴";
@@ -400,18 +317,18 @@ namespace Проекта
         }
         public void Releaze()
         {
+            Tovari.Children.Clear();
             list.Lista.Clear();
             string b;
-            if(sort==1)
-            b = "SELECT * FROM Books order by Price";
+            if (sort == 1)
+                b = "SELECT * FROM Books order by Price";
             else
-            b = "SELECT * FROM Books order by Name";
+                b = "SELECT * FROM Books order by Name";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(b, connection);
                 SqlDataReader CC = command.ExecuteReader();
-
                 if (CC.HasRows)
                 {
                     while (CC.Read())
@@ -426,80 +343,40 @@ namespace Проекта
                 }
             }
             ListBook G1 = new ListBook(list.OneTypeBooks(onlineGenre));
-            int i = Convert.ToInt32(Text2.Content) - 1;
-            if (G1.Lista.Count - i * 5 >= 5)
+            foreach (var j in G1.Lista)
             {
-                Write(5);
-                Book_One1.Content = G1.Lista[i * 5 + 0].Name;
-                Book_One2.Content = G1.Lista[i * 5 + 0].Author;
-                Book_One3.Content = G1.Lista[i * 5 + 0].price + "₴";
-                Book_Two1.Content = G1.Lista[i * 5 + 1].Name;
-                Book_Two2.Content = G1.Lista[i * 5 + 1].Author;
-                Book_Two3.Content = G1.Lista[i * 5 + 1].price + "₴";
-                Book_Three1.Content = G1.Lista[i * 5 + 2].Name;
-                Book_Three2.Content = G1.Lista[i * 5 + 2].Author;
-                Book_Three3.Content = G1.Lista[i * 5 + 2].price + "₴";
-                Book_Four1.Content = G1.Lista[i * 5 + 3].Name;
-                Book_Four2.Content = G1.Lista[i * 5 + 3].Author;
-                Book_Four3.Content = G1.Lista[i * 5 + 3].price + "₴";
-                Book_Five1.Content = G1.Lista[i * 5 + 4].Name;
-                Book_Five2.Content = G1.Lista[i * 5 + 4].Author;
-                Book_Five3.Content = G1.Lista[i * 5 + 4].price + "₴";
-            }
-            else
-            {
-                if (G1.Lista.Count - i * 5 == 0)
-                {
-                    Write(0);
-                }
-                if (G1.Lista.Count - i * 5 == 1)
-                {
-                    Write(1);
-                    Book_One1.Content = G1.Lista[i * 5 + 0].Name;
-                    Book_One2.Content = G1.Lista[i * 5 + 0].Author;
-                    Book_One3.Content = G1.Lista[i * 5 + 0].price+ "₴";
-                }
-                if (G1.Lista.Count - i * 5 == 2)
-                {
-                    Write(2);
-                    Book_One1.Content = G1.Lista[i * 5 + 0].Name;
-                    Book_One2.Content = G1.Lista[i * 5 + 0].Author;
-                    Book_One3.Content = G1.Lista[i * 5 + 0].price + "₴";
-                    Book_Two1.Content = G1.Lista[i * 5 + 1].Name;
-                    Book_Two2.Content = G1.Lista[i * 5 + 1].Author;
-                    Book_Two3.Content = G1.Lista[i * 5 + 1].price + "₴";
-                }
-                if (G1.Lista.Count - i * 5 == 3)
-                {
-                    Write(3);
-                    Book_One1.Content = G1.Lista[i * 5 + 0].Name;
-                    Book_One2.Content = G1.Lista[i * 5 + 0].Author;
-                    Book_One3.Content = G1.Lista[i * 5 + 0].price + "₴";
-                    Book_Two1.Content = G1.Lista[i * 5 + 1].Name;
-                    Book_Two2.Content = G1.Lista[i * 5 + 1].Author;
-                    Book_Two3.Content = G1.Lista[i * 5 + 1].price + "₴";
-                    Book_Three1.Content = G1.Lista[i * 5 + 2].Name;
-                    Book_Three2.Content = G1.Lista[i * 5 + 2].Author;
-                    Book_Three3.Content = G1.Lista[i * 5 + 2].price + "₴";
-                }
-                if (G1.Lista.Count - i * 5 == 4)
-                {
-                    Write(4);
-                    Book_One1.Content = G1.Lista[i * 5 + 0].Name;
-                    Book_One2.Content = G1.Lista[i * 5 + 0].Author;
-                    Book_One3.Content = G1.Lista[i * 5 + 0].price + "₴";
-                    Book_Two1.Content = G1.Lista[i * 5 + 1].Name;
-                    Book_Two2.Content = G1.Lista[i * 5 + 1].Author;
-                    Book_Two3.Content = G1.Lista[i * 5 + 1].price + "₴";
-                    Book_Three1.Content = G1.Lista[i * 5 + 2].Name;
-                    Book_Three2.Content = G1.Lista[i * 5 + 2].Author;
-                    Book_Three3.Content = G1.Lista[i * 5 + 2].price + "₴";
-                    Book_Four1.Content = G1.Lista[i * 5 + 3].Name;
-                    Book_Four2.Content = G1.Lista[i * 5 + 3].Author;
-                    Book_Four3.Content = G1.Lista[i * 5 + 3].price + "₴";
-                }
+                AddBooks(j);
             }
         }
+        public void AddBooks(Book A) {
+            Grid x = new Grid();
+            x.Margin = new Thickness(10, 0, 0, 0);
+            x.Height = 85;
+            Rectangle a1 = new Rectangle();
+            a1.Style = FindResource("BName") as Style;
+            Label b1 = new Label();
+            b1.Content = A.Name;
+            b1.Name ="Nam_"+Tovari.Children.Count;
+            b1.Style = FindResource("BNAME") as Style;
+            Label b2 = new Label();
+            b2.Content = A.Author;
+            b1.Name = "Aut_" + Tovari.Children.Count;
+            b2.Style = FindResource("BAUTHOR") as Style;
+            Label b3 = new Label();
+            b3.Style = FindResource("PRICE") as Style;
+            b3.Content = A.price + "₴";
+            b1.Name = "Pri_" + Tovari.Children.Count;
+            Rectangle a2 = new Rectangle();
+            a2.Name = "Book" + (Tovari.Children.Count ) ;
+            a2.Style = FindResource("BNameBUT") as Style;
+            x.Children.Add(a1);
+            x.Children.Add(b1);
+            x.Children.Add(b2);
+            x.Children.Add(b3);
+            x.Children.Add(a2);
+            Tovari.Children.Add(x);
+        }
+           
         public void Releaze1()
         {
             if (BBook.Count== 5)
@@ -733,52 +610,6 @@ namespace Проекта
             }
         }
 
-        private void Book11_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (BBook.Count < 5)
-                BBook.Add(new Book(Convert.ToString(Book_One1.Content), (Convert.ToString(Book_One2.Content)), Convert.ToDouble(Convert.ToString(Book_One3.Content).TrimEnd('₴')), "", onlineGenre));
-            else
-                MessageBox.Show("Корзина повна");
-            Repaing(BBook.Count);
-            Releaze1();
-        }
-
-        private void Book22_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (BBook.Count < 5)
-                BBook.Add(new Book(Convert.ToString(Book_Two1.Content), (Convert.ToString(Book_Two2.Content)), Convert.ToDouble(Convert.ToString(Book_Two3.Content).TrimEnd('₴')), "", onlineGenre));
-            else
-                MessageBox.Show("Корзина повна");
-            Releaze1();
-        }
-
-        private void Book33_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (BBook.Count < 5)
-                BBook.Add(new Book(Convert.ToString(Book_Three1.Content), (Convert.ToString(Book_Three2.Content)), Convert.ToDouble(Convert.ToString(Book_Three3.Content).TrimEnd('₴')), "", onlineGenre));
-            else
-                MessageBox.Show("Корзина повна");
-            Releaze1();
-        }
-
-        private void Book44_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (BBook.Count < 5)
-                BBook.Add(new Book(Convert.ToString(Book_Four1.Content), (Convert.ToString(Book_Four2.Content)), Convert.ToDouble(Convert.ToString(Book_Four3.Content).TrimEnd('₴')), "", onlineGenre));
-            else
-                MessageBox.Show("Корзина повна");
-            Releaze1();
-        }
-
-        private void Book55_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (BBook.Count < 5)
-                BBook.Add(new Book(Convert.ToString(Book_Five1.Content), (Convert.ToString(Book_Five2.Content)), Convert.ToDouble(Convert.ToString(Book_Five3.Content).TrimEnd('₴')), "", onlineGenre));
-            else
-                MessageBox.Show("Корзина повна");
-            Releaze1();
-        }
-
         private void Button_Click_10(object sender, RoutedEventArgs e)
         {
             BBook.Remove(BBook[2]);
@@ -817,45 +648,10 @@ namespace Проекта
             Releaze();
         }
 
-        private void Book22_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            BookINFO.Visibility = Visibility.Visible;
-            RReleaze(1);
-
-        }
-
         private void Exit1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             BookINFO.Visibility = Visibility.Hidden;
         }
-
-        private void Book11_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            BookINFO.Visibility = Visibility.Visible;
-            RReleaze(0);
-        }
-
-        private void Book33_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            BookINFO.Visibility = Visibility.Visible;
-            RReleaze(2);
-
-        }
-
-        private void Book44_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            BookINFO.Visibility = Visibility.Visible;
-            RReleaze(3);
-
-        }
-
-        private void Book55_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            BookINFO.Visibility = Visibility.Visible;
-            RReleaze(4);
-
-        }
-
         private void Image_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
             Acc.Visibility = Visibility.Visible;
@@ -912,6 +708,10 @@ namespace Проекта
         private void Button_Click_1455(object sender, RoutedEventArgs e)
         {
             delacc.Visibility = Visibility.Visible;
+        }
+
+        private void Button_Click_15(object sender, RoutedEventArgs e)
+        {
         }
 
         private void Button_Click_755(object sender, RoutedEventArgs e)

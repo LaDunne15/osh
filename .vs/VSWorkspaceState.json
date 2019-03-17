@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Проекта"
+    "\\Проекта",
+    "\\Проекта\\Проекта",
+    "\\Проекта\\Проекта\\Properties"
   ],
   "SelectedNode": "\\Проекта\\Проекта.sln",
   "PreviewInSolutionExplorer": false

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Проекта
 {
-    class Book
+    public class Book
     {
         public string Name,Author; //Назва книги і її автор
         public double price;// ціна книги
